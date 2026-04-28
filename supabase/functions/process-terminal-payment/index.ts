@@ -59,35 +59,9 @@ class IdiaStrategy {
   }
 }
 
-// ── Strategy: Stripe (stub) ─────────────────────────────────────────
-class StripeStrategy {
-  async process(_amount: number, _config: any) {
-    return {
-      success: false,
-      transactionId: null,
-      provider: "Stripe",
-      error: "Stripe Terminal integration not yet configured. Add your Stripe secret key to activate.",
-    };
-  }
-}
-
-// ── Strategy: Square (stub) ─────────────────────────────────────────
-class SquareStrategy {
-  async process(_amount: number, _config: any) {
-    return {
-      success: false,
-      transactionId: null,
-      provider: "Square",
-      error: "Square Terminal integration not yet configured. Add your Square access token to activate.",
-    };
-  }
-}
-
 // ── Dispatcher ──────────────────────────────────────────────────────
-const strategies: Record<string, IdiaStrategy | StripeStrategy | SquareStrategy> = {
+const strategies: Record<string, IdiaStrategy> = {
   IDIA: new IdiaStrategy(),
-  Stripe: new StripeStrategy(),
-  Square: new SquareStrategy(),
 };
 
 Deno.serve(async (req: Request) => {

@@ -8,13 +8,14 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { getBusinessId } from "@/lib/business-access";
-import { CreditCard, DollarSign, Zap, Check } from "lucide-react";
+import { CreditCard, Zap, Check } from "lucide-react";
 
 interface PaymentConfigModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+// IDIA is the only payment rail this shell exposes.
 const PROVIDERS = [
   {
     key: "IDIA",
@@ -24,22 +25,6 @@ const PROVIDERS = [
     icon: Zap,
     recommended: true,
   },
-  {
-    key: "Stripe",
-    label: "Stripe",
-    subtitle: "Stripe Terminal SDK",
-    fee: "2.9%",
-    icon: CreditCard,
-    recommended: false,
-  },
-  {
-    key: "Square",
-    label: "Square",
-    subtitle: "Square Terminal API",
-    fee: "2.6%",
-    icon: DollarSign,
-    recommended: false,
-  },
 ] as const;
 
 type ProviderKey = (typeof PROVIDERS)[number]["key"];
@@ -48,8 +33,6 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
   const [activeProvider, setActiveProvider] = useState<ProviderKey>("IDIA");
   const [idiaMerchantId, setIdiaMerchantId] = useState("");
   const [idiaTerminalId, setIdiaTerminalId] = useState("");
-  const [stripeTerminalId, setStripeTerminalId] = useState("");
-  const [squareTerminalId, setSquareTerminalId] = useState("");
   const [configId, setConfigId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
@@ -61,7 +44,7 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
   const loadConfig = async () => {
     try {
       const businessId = await getBusinessId();
-      const { data } = await supabase
+      const { data } = await (supabase as any)
         .from("merchant_payment_configs")
         .select("*")
         .eq("business_id", businessId)
@@ -71,11 +54,9 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
 
       if (data) {
         setConfigId(data.id);
-        setActiveProvider((data.active_provider as ProviderKey) || "IDIA");
+        setActiveProvider("IDIA");
         setIdiaMerchantId(data.idia_merchant_id || "");
         setIdiaTerminalId(data.idia_terminal_id || "");
-        setStripeTerminalId(data.stripe_terminal_id || "");
-        setSquareTerminalId(data.square_terminal_id || "");
       }
     } catch (err) {
       console.error("Error loading payment config:", err);
@@ -88,27 +69,25 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
       const businessId = await getBusinessId();
       const payload = {
         business_id: businessId,
-        active_provider: activeProvider,
+        active_provider: "IDIA",
         idia_merchant_id: idiaMerchantId,
         idia_terminal_id: idiaTerminalId,
-        stripe_terminal_id: stripeTerminalId,
-        square_terminal_id: squareTerminalId,
         is_default: true,
         updated_at: new Date().toISOString(),
       };
 
       if (configId) {
-        await supabase
+        await (supabase as any)
           .from("merchant_payment_configs")
           .update(payload)
           .eq("id", configId);
       } else {
-        await supabase.from("merchant_payment_configs").insert(payload);
+        await (supabase as any).from("merchant_payment_configs").insert(payload);
       }
 
       toast({
         title: "Payment Configuration Saved",
-        description: `Active processor set to ${activeProvider}.`,
+        description: "Active processor set to IDIA.",
       });
       onClose();
     } catch (err) {
@@ -128,32 +107,20 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
             Payment Processing Configuration
           </DialogTitle>
           <DialogDescription>
-            Select your payment processor. All communication happens server-side — no API keys are exposed in the browser.
+            All payments on this shell route through IDIA. Credentials are stored as secure server secrets — nothing sensitive is exposed in the browser.
           </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6 pt-2">
-          {/* Provider Selection */}
+          {/* Provider — IDIA only */}
           <div className="grid gap-3">
             {PROVIDERS.map((p) => {
               const Icon = p.icon;
               const selected = activeProvider === p.key;
               return (
-                <Card
-                  key={p.key}
-                  className={`cursor-pointer transition-all border-2 ${
-                    selected
-                      ? "border-primary bg-primary/5"
-                      : "border-border hover:border-muted-foreground/40"
-                  }`}
-                  onClick={() => setActiveProvider(p.key)}
-                >
+                <Card key={p.key} className="border-2 border-primary bg-primary/5">
                   <CardContent className="flex items-center gap-4 p-4">
-                    <div
-                      className={`flex h-10 w-10 items-center justify-center rounded-lg ${
-                        selected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                      }`}
-                    >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                       <Icon className="h-5 w-5" />
                     </div>
 
@@ -162,7 +129,7 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
                         <span className="font-semibold text-sm">{p.label}</span>
                         {p.recommended && (
                           <Badge variant="default" className="text-[10px] px-1.5 py-0">
-                            Recommended · Low Rate
+                            Native rail
                           </Badge>
                         )}
                       </div>
@@ -174,11 +141,7 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
                       <div className="text-[10px] text-muted-foreground">per txn</div>
                     </div>
 
-                    <div
-                      className={`flex h-6 w-6 items-center justify-center rounded-full border-2 ${
-                        selected ? "border-primary bg-primary text-primary-foreground" : "border-muted-foreground/30"
-                      }`}
-                    >
+                    <div className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-primary bg-primary text-primary-foreground">
                       {selected && <Check className="h-3.5 w-3.5" />}
                     </div>
                   </CardContent>
@@ -187,69 +150,32 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
             })}
           </div>
 
-          {/* Provider-specific fields */}
+          {/* IDIA credentials */}
           <div className="space-y-4 rounded-lg border p-4 bg-muted/30">
-            <h4 className="text-sm font-semibold">
-              {activeProvider === "IDIA" && "IDIA / Worldpay Credentials"}
-              {activeProvider === "Stripe" && "Stripe Terminal Settings"}
-              {activeProvider === "Square" && "Square Terminal Settings"}
-            </h4>
-
-            {activeProvider === "IDIA" && (
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="idia-merchant">Merchant ID</Label>
-                  <Input
-                    id="idia-merchant"
-                    value={idiaMerchantId}
-                    onChange={(e) => setIdiaMerchantId(e.target.value)}
-                    placeholder="IDIA merchant ID"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="idia-terminal">Terminal / Lane ID</Label>
-                  <Input
-                    id="idia-terminal"
-                    value={idiaTerminalId}
-                    onChange={(e) => setIdiaTerminalId(e.target.value)}
-                    placeholder="TriPOS lane ID"
-                  />
-                </div>
-                <p className="col-span-2 text-xs text-muted-foreground">
-                  The Worldpay API key is stored as a secure server secret and never sent to the browser.
-                </p>
-              </div>
-            )}
-
-            {activeProvider === "Stripe" && (
+            <h4 className="text-sm font-semibold">IDIA / Worldpay Credentials</h4>
+            <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="stripe-terminal">Stripe Terminal ID</Label>
+                <Label htmlFor="idia-merchant">Merchant ID</Label>
                 <Input
-                  id="stripe-terminal"
-                  value={stripeTerminalId}
-                  onChange={(e) => setStripeTerminalId(e.target.value)}
-                  placeholder="tmr_..."
+                  id="idia-merchant"
+                  value={idiaMerchantId}
+                  onChange={(e) => setIdiaMerchantId(e.target.value)}
+                  placeholder="IDIA merchant ID"
                 />
-                <p className="text-xs text-muted-foreground mt-1">
-                  Stripe integration is currently in stub mode. Add your Stripe secret key to activate.
-                </p>
               </div>
-            )}
-
-            {activeProvider === "Square" && (
               <div>
-                <Label htmlFor="square-terminal">Square Terminal Device ID</Label>
+                <Label htmlFor="idia-terminal">Terminal / Lane ID</Label>
                 <Input
-                  id="square-terminal"
-                  value={squareTerminalId}
-                  onChange={(e) => setSquareTerminalId(e.target.value)}
-                  placeholder="Device ID"
+                  id="idia-terminal"
+                  value={idiaTerminalId}
+                  onChange={(e) => setIdiaTerminalId(e.target.value)}
+                  placeholder="TriPOS lane ID"
                 />
-                <p className="text-xs text-muted-foreground mt-1">
-                  Square integration is currently in stub mode. Add your Square access token to activate.
-                </p>
               </div>
-            )}
+              <p className="col-span-2 text-xs text-muted-foreground">
+                The Worldpay API key is stored as a secure server secret and never sent to the browser.
+              </p>
+            </div>
           </div>
         </div>
 
