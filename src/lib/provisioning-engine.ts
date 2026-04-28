@@ -54,7 +54,12 @@ const SEED_BLUEPRINT: PayAppBlueprint = {
 };
 
 export class ProvisioningEngine {
-  static readonly STORAGE_KEY = "idia_blueprint_v1";
+  static readonly STORAGE_KEY = "idia_sovereign_blueprint";
+
+  /** Spec-named alias used by Index.tsx gatekeeper. */
+  static getLocalBlueprint(): PayAppBlueprint | null {
+    return this.loadCached();
+  }
 
   static async hydrateFromHub(provisioningCode: string): Promise<PayAppBlueprint> {
     logTrace("hydrateFromHub", `Requesting edge sync for code: ${provisioningCode}`);
