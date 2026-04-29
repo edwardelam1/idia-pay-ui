@@ -6,11 +6,11 @@ import { ProvisioningEngine, PayAppBlueprint } from "@/lib/provisioning-engine";
 import { Shield, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-interface ProvisioningGateProps {
+interface ProvisioningScreenProps {
   onHydrated: (blueprint: PayAppBlueprint) => void;
 }
 
-export const ProvisioningGate = ({ onHydrated }: ProvisioningGateProps) => {
+export const ProvisioningScreen = ({ onHydrated }: ProvisioningScreenProps) => {
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
