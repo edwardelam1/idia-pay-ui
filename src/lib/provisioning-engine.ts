@@ -62,10 +62,19 @@ export class ProvisioningEngine {
   }
 
   static async hydrateFromHub(provisioningCode: string): Promise<PayAppBlueprint> {
-    logTrace("hydrateFromHub", `Requesting edge sync for code: ${provisioningCode}`);
+    const ctxId = `hydrate-${provisioningCode}-${Date.now()}`;
+    logTrace("hydrateFromHub", `ContextID: ${ctxId} | Requesting edge sync for code: ${provisioningCode}`);
+
+    // Silent-stall watchdog — if the remote query hangs > 6s we surface it.
+    const stallTimer = setTimeout(() => {
+      console.error(
+        `[STALL: ProvisioningEngine.hydrateFromHub] ContextID: ${ctxId} | Offset: RemoteQuery | Reason: No response after 6000ms.`,
+      );
+    }, 6000);
 
     try {
       // Offset 1: Attempt remote query. Table may not exist yet — gracefully fall through.
+      console.info(`[BEGIN: ProvisioningEngine.RemoteQuery] ContextID: ${ctxId}`);
       try {
         const { data, error } = await (supabase as any)
           .from("device_provisioning_blueprints")
@@ -74,15 +83,23 @@ export class ProvisioningEngine {
           .maybeSingle();
 
         if (!error && data?.payload) {
+          clearTimeout(stallTimer);
           const blueprint = data.payload as PayAppBlueprint;
           localStorage.setItem(this.STORAGE_KEY, JSON.stringify(blueprint));
+          console.info(`[END: ProvisioningEngine.RemoteQuery] SUCCESS. ContextID: ${ctxId}`);
           logEnd("hydrateFromHub", `Hydration successful from Hub for ${provisioningCode}.`);
           return blueprint;
         }
-        console.info(`[ProvisioningEngine.hydrateFromHub] Remote payload unavailable; falling back to seed.`);
+        console.info(
+          `[END: ProvisioningEngine.RemoteQuery] FALLTHROUGH. ContextID: ${ctxId} | Offset: PayloadEmpty | Reason: Remote payload unavailable; falling back to seed.`,
+        );
       } catch (remoteErr) {
-        console.info(`[ProvisioningEngine.hydrateFromHub] Hub table unreachable; using seed blueprint.`, remoteErr);
+        console.error(
+          `[END: ProvisioningEngine.RemoteQuery] RECOVERABLE FAILURE. ContextID: ${ctxId} | Offset: SupabaseQuery | Reason:`,
+          remoteErr,
+        );
       }
+      clearTimeout(stallTimer);
 
       // Offset 2: Local seed fallback (demo / dev)
       if (provisioningCode === SEED_BLUEPRINT.provisioningCode || provisioningCode === "DEMO") {
@@ -94,7 +111,8 @@ export class ProvisioningEngine {
 
       throw new Error("Invalid provisioning code or unauthorized terminal.");
     } catch (error) {
-      logError("hydrateFromHub", provisioningCode, error);
+      clearTimeout(stallTimer);
+      logError("hydrateFromHub", ctxId, error);
       throw error;
     }
   }
