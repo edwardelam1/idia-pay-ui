@@ -101,7 +101,7 @@ export const EmbeddableCheckoutModal = ({ isOpen, onClose }: EmbeddableCheckoutM
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label>Cart/Order ID</Label>
                     <Input placeholder="e.g., ORD-12345" />
@@ -134,7 +134,7 @@ export const EmbeddableCheckoutModal = ({ isOpen, onClose }: EmbeddableCheckoutM
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm">Quick Share Options</CardTitle>
               </CardHeader>
-              <CardContent className="grid grid-cols-3 gap-3">
+              <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                 <Button variant="outline" className="h-20 flex flex-col" onClick={() => shareViaSMS("")}>
                   <MessageSquare className="h-6 w-6 mb-2" />
                   <span className="text-xs">Send via SMS</span>

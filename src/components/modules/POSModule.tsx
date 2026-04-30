@@ -392,7 +392,7 @@ export const POSModule = () => {
 
         {/* Menu Grid - Scrollable */}
         <div className="flex-1 min-h-0 overflow-y-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
             {filteredItems.map((item) => (
               <Card key={item.id} className="cursor-pointer hover:shadow-md transition-shadow">
                 {item.image_url && (
@@ -563,7 +563,7 @@ export const POSModule = () => {
             {/* Payment Methods */}
             <div className="space-y-2">
               <h4 className="font-medium">Payment Method</h4>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <Button
                   variant="outline"
                   onClick={() => processPayment("Cash")}
@@ -581,7 +581,7 @@ export const POSModule = () => {
                   Card
                 </Button>
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <Button
                   variant="outline"
                   onClick={() => processPayment("IDIA-USD (NFC)")}

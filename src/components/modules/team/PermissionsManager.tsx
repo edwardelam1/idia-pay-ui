@@ -186,7 +186,7 @@ export const PermissionsManager = ({ permissions, templates, onAddTemplate, onUp
           </DialogHeader>
 
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>Template Name</Label>
                 <Input value={templateForm.name} onChange={e => setTemplateForm(p => ({ ...p, name: e.target.value }))} placeholder="e.g. Shift Lead" />

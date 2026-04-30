@@ -101,7 +101,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
         <TabsContent value="overview" className="flex-1 overflow-auto m-0">
           <div className="h-full p-2 overflow-y-auto space-y-2">
             {/* Warehouse Performance */}
-            <div className="grid grid-cols-4 gap-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
               <Card className="p-1.5">
                 <div className="flex items-center justify-between">
                   <div>
@@ -141,7 +141,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
             </div>
 
             {/* WMS Quick Status */}
-            <div className="grid grid-cols-6 gap-1">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-1">
               <Card className="p-1">
                 <div className="text-center">
                   <Timer className="h-3 w-3 mx-auto text-green-500" />
@@ -253,7 +253,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
                 <CardTitle className="text-xs">Quick Actions</CardTitle>
               </CardHeader>
               <CardContent className="p-1.5 pt-0">
-                <div className="grid grid-cols-4 md:grid-cols-8 gap-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-8 gap-1">
                   <Button 
                     variant="outline" 
                     className="h-10 flex flex-col text-[9px] p-1"
@@ -339,7 +339,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
                   </CardHeader>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <CardContent className="p-1.5 pt-0 grid grid-cols-3 gap-1.5">
+                  <CardContent className="p-1.5 pt-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1.5">
                     <div className="border rounded p-1.5">
                       <div className="flex items-center gap-1 mb-1">
                         <Database className="h-3 w-3 text-blue-500" />
@@ -390,7 +390,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
                   </CardHeader>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <CardContent className="p-1.5 pt-0 grid grid-cols-2 gap-1.5">
+                  <CardContent className="p-1.5 pt-0 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                     <div className="border rounded p-1.5">
                       <div className="flex items-center gap-1 mb-1">
                         <Calendar className="h-3 w-3 text-orange-500" />
@@ -430,7 +430,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
                   </CardHeader>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <CardContent className="p-1.5 pt-0 grid grid-cols-2 gap-1.5">
+                  <CardContent className="p-1.5 pt-0 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                     <div className="border rounded p-1.5">
                       <div className="flex items-center gap-1 mb-1">
                         <CheckCircle className="h-3 w-3 text-green-500" />
@@ -470,7 +470,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
                   </CardHeader>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <CardContent className="p-1.5 pt-0 grid grid-cols-4 gap-1.5">
+                  <CardContent className="p-1.5 pt-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1.5">
                     <div className="border rounded p-1.5 text-center">
                       <Fingerprint className="h-4 w-4 mx-auto text-green-500 mb-1" />
                       <p className="text-[8px] font-medium">GTIN</p>
@@ -508,7 +508,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
                   </CardHeader>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <CardContent className="p-1.5 pt-0 grid grid-cols-3 gap-1.5">
+                  <CardContent className="p-1.5 pt-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1.5">
                     <div className="border rounded p-1.5">
                       <div className="flex items-center gap-1 mb-1">
                         <Link2 className="h-3 w-3 text-cyan-500" />
@@ -556,7 +556,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
                   </CardHeader>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <CardContent className="p-1.5 pt-0 grid grid-cols-3 gap-1.5">
+                  <CardContent className="p-1.5 pt-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1.5">
                     <div className="border rounded p-1.5">
                       <div className="flex items-center gap-1 mb-1">
                         <BarChart3 className="h-3 w-3 text-blue-500" />
@@ -605,7 +605,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
                   </CardHeader>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <CardContent className="p-1.5 pt-0 grid grid-cols-4 gap-1.5">
+                  <CardContent className="p-1.5 pt-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1.5">
                     <div className="border rounded p-1.5">
                       <div className="flex items-center gap-1 mb-1">
                         <Wifi className="h-3 w-3 text-cyan-500" />
@@ -663,7 +663,7 @@ export const WarehouseDashboard = ({ businessHealthIndex }: WarehouseDashboardPr
                   </CardHeader>
                 </CollapsibleTrigger>
                 <CollapsibleContent>
-                  <CardContent className="p-1.5 pt-0 grid grid-cols-2 gap-1.5">
+                  <CardContent className="p-1.5 pt-0 grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                     <div className="border rounded p-1.5">
                       <div className="flex items-center gap-1 mb-1">
                         <ChevronDown className="h-3 w-3 text-blue-500" />

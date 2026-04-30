@@ -179,7 +179,7 @@ export const LocationSettingsModal = ({ isOpen, onClose }: LocationSettingsModal
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label>Location Name</Label>
                     <Input
@@ -205,7 +205,7 @@ export const LocationSettingsModal = ({ isOpen, onClose }: LocationSettingsModal
                     placeholder="Suite, Unit, Floor (optional)"
                   />
                 </div>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                   <div>
                     <Label>City</Label>
                     <Input

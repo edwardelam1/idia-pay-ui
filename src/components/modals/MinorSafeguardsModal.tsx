@@ -101,7 +101,7 @@ export const MinorSafeguardsModal = ({ isOpen, onClose }: MinorSafeguardsModalPr
               </div>
 
               {settings.shiftRestrictionEnabled && (
-                <div className="grid grid-cols-2 gap-4 p-3 bg-muted rounded-lg">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3 bg-muted rounded-lg">
                   <div className="space-y-2">
                     <Label>Earliest Login Time</Label>
                     <Input 

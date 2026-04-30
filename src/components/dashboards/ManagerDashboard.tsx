@@ -40,7 +40,7 @@ export const ManagerDashboard = ({ businessHealthIndex }: ManagerDashboardProps)
 
         <TabsContent value="overview" className="flex-1 overflow-y-auto p-2">
           {/* Location Performance */}
-          <div className="grid grid-cols-2 gap-2 mb-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Daily Revenue</CardTitle>
@@ -159,7 +159,7 @@ export const ManagerDashboard = ({ businessHealthIndex }: ManagerDashboardProps)
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 <Button variant="outline" className="h-20 flex flex-col">
                   <Clock className="w-6 h-6 mb-2" />
                   <span className="text-sm">Approve Timesheets</span>

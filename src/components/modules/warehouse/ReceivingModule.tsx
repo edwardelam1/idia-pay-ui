@@ -550,7 +550,7 @@ export const ReceivingModule = () => {
                           <>
                             {/* Batch tracking fields */}
                             {line.requires_batch_tracking && (
-                              <div className="grid grid-cols-2 gap-1.5 mb-1.5">
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mb-1.5">
                                 <div>
                                   <Label className="text-[8px]">Lot Number *</Label>
                                   <Input
@@ -573,7 +573,7 @@ export const ReceivingModule = () => {
                             )}
 
                             {/* Qty + invoice cost + damaged */}
-                            <div className="grid grid-cols-4 gap-1.5 mb-1.5">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1.5 mb-1.5">
                               <div>
                                 <Label className="text-[8px]">Physical Count</Label>
                                 <Input
@@ -832,7 +832,7 @@ const CreatePOForm = ({ onClose }: { onClose: () => void }) => {
         <DialogDescription className="text-xs">Create a new PO linked to a supplier and inventory items</DialogDescription>
       </DialogHeader>
       <div className="space-y-3">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className="space-y-1">
             <Label className="text-xs">PO Number</Label>
             <Input value={poNumber} onChange={(e) => setPoNumber(e.target.value)} className="h-7 text-xs" />
@@ -847,7 +847,7 @@ const CreatePOForm = ({ onClose }: { onClose: () => void }) => {
             </Select>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className="space-y-1">
             <Label className="text-xs">Expected Delivery</Label>
             <Input type="date" value={expectedDate} onChange={(e) => setExpectedDate(e.target.value)} className="h-7 text-xs" />
@@ -867,7 +867,7 @@ const CreatePOForm = ({ onClose }: { onClose: () => void }) => {
         </div>
 
         {lineItems.map((line, idx) => (
-          <div key={idx} className="grid grid-cols-4 gap-2 items-end">
+          <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 items-end">
             <div className="col-span-2 space-y-1">
               <Label className="text-[8px]">Item</Label>
               <Select value={line.inventory_item_id} onValueChange={(v) => selectItem(idx, v)}>

@@ -82,7 +82,7 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
         </div>
 
         {/* Features Preview */}
-        <div className="grid grid-cols-2 gap-2 max-w-xs mx-auto text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-w-xs mx-auto text-xs">
           <div className="text-center p-2 rounded-lg bg-card border">
             <div className="text-primary font-semibold text-xs">Smart POS</div>
             <div className="text-xs text-muted-foreground">AI-Powered Menu</div>

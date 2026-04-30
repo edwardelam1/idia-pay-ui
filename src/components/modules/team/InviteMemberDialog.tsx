@@ -162,7 +162,7 @@ export const InviteMemberDialog = ({ open, onOpenChange, templates, onSubmit }: 
                     <p className="text-sm text-muted-foreground">{selectedUser.email}</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label>Role</Label>
                     <Select value={assignRole} onValueChange={setAssignRole}>
@@ -196,7 +196,7 @@ export const InviteMemberDialog = ({ open, onOpenChange, templates, onSubmit }: 
 
           <TabsContent value="manual" className="mt-4">
             <form onSubmit={handleManualSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="m-name">Full Name</Label>
                   <Input id="m-name" value={manualForm.name} onChange={e => setManualForm(p => ({ ...p, name: e.target.value }))} required />
@@ -206,7 +206,7 @@ export const InviteMemberDialog = ({ open, onOpenChange, templates, onSubmit }: 
                   <Input id="m-email" type="email" value={manualForm.email} onChange={e => setManualForm(p => ({ ...p, email: e.target.value }))} required />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="m-phone">Phone Number</Label>
                   <Input id="m-phone" value={manualForm.phone} onChange={e => setManualForm(p => ({ ...p, phone: e.target.value }))} />
@@ -223,7 +223,7 @@ export const InviteMemberDialog = ({ open, onOpenChange, templates, onSubmit }: 
                   </Select>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="m-rate">Hourly Rate ($)</Label>
                   <Input id="m-rate" type="number" step="0.01" value={manualForm.hourly_rate} onChange={e => setManualForm(p => ({ ...p, hourly_rate: e.target.value }))} />

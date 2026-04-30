@@ -130,7 +130,7 @@ export const DataCoopSettings = () => {
             <>
               <div className="space-y-3">
                 <Label className="text-base font-medium">Anonymization Level</Label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
                   {["high", "medium", "low"].map((level) => (
                     <Button
                       key={level}

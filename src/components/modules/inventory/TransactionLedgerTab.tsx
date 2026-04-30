@@ -327,7 +327,7 @@ const RecordTransactionForm = ({ onCancel, onSubmit }: { onCancel: () => void; o
 
   return (
     <form onSubmit={(e) => { e.preventDefault(); onSubmit(formData); }} className="space-y-4">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label>Transaction Type</Label>
           <Select value={formData.transaction_type} onValueChange={(v) => setFormData(p => ({ ...p, transaction_type: v }))}>
@@ -371,7 +371,7 @@ const RecordTransactionForm = ({ onCancel, onSubmit }: { onCancel: () => void; o
       )}
 
       {(vis.from || vis.to) && (
-        <div className={`grid gap-4 ${vis.from && vis.to ? 'grid-cols-2' : 'grid-cols-1'}`}>
+        <div className={`grid gap-4 ${vis.from && vis.to ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
           {vis.from && (
             <div className="space-y-2">
               <Label>From Location</Label>
@@ -405,7 +405,7 @@ const RecordTransactionForm = ({ onCancel, onSubmit }: { onCancel: () => void; o
         </div>
       )}
 
-      <div className={`grid gap-4 ${vis.reference ? 'grid-cols-3' : 'grid-cols-2'}`}>
+      <div className={`grid gap-4 ${vis.reference ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2'}`}>
         <div className="space-y-2">
           <Label>Quantity {formData.unit_of_measure && `(${formData.unit_of_measure})`}</Label>
           <Input type="number" value={formData.quantity} onChange={(e) => setFormData(p => ({ ...p, quantity: parseFloat(e.target.value) || 0 }))} required />

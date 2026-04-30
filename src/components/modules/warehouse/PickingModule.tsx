@@ -328,7 +328,7 @@ export const PickingModule = () => {
                           </Badge>
                         </div>
                         
-                        <div className="grid grid-cols-2 gap-2 text-[9px]">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[9px]">
                           <div>
                             <p className="text-muted-foreground">Location</p>
                             <p className="font-medium">{item.warehouse_bins.zone}-{item.warehouse_bins.aisle}-{item.warehouse_bins.shelf}</p>

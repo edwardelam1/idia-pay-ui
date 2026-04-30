@@ -755,7 +755,7 @@ export const RecipeManagement = () => {
                       <input type="file" accept="image/*" className="hidden" onChange={(e) => handlePhotoSelect(e)} />
                     </label>
                   </div>
-                  <div className="flex-1 grid grid-cols-5 gap-2">
+                  <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
                   <div className="col-span-2 space-y-1">
                     <Label className="text-xs">Name *</Label>
                     <Input
@@ -785,7 +785,7 @@ export const RecipeManagement = () => {
                   </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-6 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
                   <div className="space-y-1">
                     <Label className="text-xs">Prep (min)</Label>
                     <Input className="h-7 text-xs" type="number" min="0" value={newRecipe.prep_time}
@@ -830,7 +830,7 @@ export const RecipeManagement = () => {
                   </div>
                   <div className="border rounded-md">
                     {/* Header */}
-                    <div className="grid grid-cols-12 gap-1 text-[10px] font-medium text-muted-foreground px-2 py-1 bg-muted/40 border-b">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-12 gap-1 text-[10px] font-medium text-muted-foreground px-2 py-1 bg-muted/40 border-b">
                       <div className="col-span-3">Item</div>
                       <div className="col-span-1">Net</div>
                       <div className="col-span-1">Yield%</div>
@@ -850,7 +850,7 @@ export const RecipeManagement = () => {
                         const hasDensityIssue = densityWarnings[index];
 
                         return (
-                          <div key={index} className={`grid grid-cols-12 gap-1 items-center px-2 py-1 border-b last:border-b-0 ${overStock ? 'bg-destructive/5' : hasDensityIssue ? 'bg-warning/5' : ''}`}>
+                          <div key={index} className={`grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-12 gap-1 items-center px-2 py-1 border-b last:border-b-0 ${overStock ? 'bg-destructive/5' : hasDensityIssue ? 'bg-warning/5' : ''}`}>
                             <div className="col-span-3">
                               <Select value={ingredient.inventory_item_id} onValueChange={(v) => updateIngredient(index, 'inventory_item_id', v)}>
                                 <SelectTrigger className="h-6 text-[11px]">
@@ -916,7 +916,7 @@ export const RecipeManagement = () => {
                 </div>
 
                 {/* Row 4: Costing Summary (inline) */}
-                <div className="grid grid-cols-5 gap-2 p-2 rounded-md border bg-muted/20 text-xs">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 p-2 rounded-md border bg-muted/20 text-xs">
                   <div>
                     <span className="text-muted-foreground">Total Cost</span>
                     <div className="font-semibold">${calculateFormCost().toFixed(2)}</div>
@@ -1015,7 +1015,7 @@ export const RecipeManagement = () => {
                         <input type="file" accept="image/*" className="hidden" onChange={(e) => handlePhotoSelect(e, true)} />
                       </label>
                     </div>
-                    <div className="flex-1 grid grid-cols-5 gap-2">
+                    <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
                       <div className="col-span-2 space-y-1">
                         <Label className="text-xs">Name *</Label>
                         <Input className="h-7 text-xs" placeholder="Recipe name" value={editForm.name} onChange={(e) => setEditForm((p: any) => ({ ...p, name: e.target.value }))} />
@@ -1033,7 +1033,7 @@ export const RecipeManagement = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="grid grid-cols-6 gap-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
                     <div className="space-y-1">
                       <Label className="text-xs">Prep (min)</Label>
                       <Input className="h-7 text-xs" type="number" min="0" value={editForm.prep_time} onChange={(e) => setEditForm((p: any) => ({ ...p, prep_time: parseInt(e.target.value) || 0 }))} />
@@ -1071,7 +1071,7 @@ export const RecipeManagement = () => {
                       </Button>
                     </div>
                     <div className="border rounded-md">
-                      <div className="grid grid-cols-12 gap-1 text-[10px] font-medium text-muted-foreground px-2 py-1 bg-muted/40 border-b">
+                      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-12 gap-1 text-[10px] font-medium text-muted-foreground px-2 py-1 bg-muted/40 border-b">
                         <div className="col-span-3">Item</div>
                         <div className="col-span-1">Net</div>
                         <div className="col-span-1">Yield%</div>
@@ -1089,7 +1089,7 @@ export const RecipeManagement = () => {
                           const overStock = item && grossQty > item.current_stock;
                           const hasDensityIssue = editDensityWarnings[index];
                           return (
-                            <div key={index} className={`grid grid-cols-12 gap-1 items-center px-2 py-1 border-b last:border-b-0 ${overStock ? 'bg-destructive/5' : hasDensityIssue ? 'bg-warning/5' : ''}`}>
+                            <div key={index} className={`grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-12 gap-1 items-center px-2 py-1 border-b last:border-b-0 ${overStock ? 'bg-destructive/5' : hasDensityIssue ? 'bg-warning/5' : ''}`}>
                               <div className="col-span-3">
                                 <Select value={ingredient.inventory_item_id} onValueChange={(v) => editUpdateIngredient(index, 'inventory_item_id', v)}>
                                   <SelectTrigger className="h-6 text-[11px]"><SelectValue placeholder="Select..." /></SelectTrigger>
@@ -1145,7 +1145,7 @@ export const RecipeManagement = () => {
                   </div>
 
                   {/* Costing Summary */}
-                  <div className="grid grid-cols-5 gap-2 p-2 rounded-md border bg-muted/20 text-xs">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 p-2 rounded-md border bg-muted/20 text-xs">
                     <div>
                       <span className="text-muted-foreground">Total Cost</span>
                       <div className="font-semibold">${calculateEditFormCost().toFixed(2)}</div>
@@ -1258,7 +1258,7 @@ export const RecipeManagement = () => {
                       <p className="text-sm">Create your first recipe using inventory items</p>
                     </div>
                   ) : (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
                       {filteredRecipes.map((recipe) => {
                         const totalCost = (recipe.ingredients || []).reduce((sum, ing) => {
                           const item = inventoryItems.find(i => i.id === ing.inventory_item_id);

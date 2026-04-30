@@ -116,7 +116,7 @@ export const OwnerDashboard = ({ businessHealthIndex }: OwnerDashboardProps) => 
                 </Card>
 
                 {/* 2x2 Metrics Grid */}
-                <div className="grid grid-cols-2 gap-3 flex-shrink-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 flex-shrink-0">
                   <Card className="p-3">
                     <div className="flex items-center justify-between">
                       <div>
@@ -224,7 +224,7 @@ export const OwnerDashboard = ({ businessHealthIndex }: OwnerDashboardProps) => 
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="pt-0 px-3 pb-3 h-full overflow-hidden flex flex-col">
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <Button 
                         variant="outline" 
                         className="h-14 flex flex-col text-center"

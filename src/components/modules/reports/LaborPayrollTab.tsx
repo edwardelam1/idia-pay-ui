@@ -25,7 +25,7 @@ export const LaborPayrollTab = ({ labor, timeEntries, loading }: Props) => {
 
   return (
     <div className="space-y-3">
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         <Card className="p-3">
           <div className="flex items-center justify-between">
             <div>

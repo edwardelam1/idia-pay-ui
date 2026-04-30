@@ -42,7 +42,7 @@ export const MenuItemCard = ({ item, onToggleLock, onToggleActive }: MenuItemCar
       </div>
 
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-3 sm:flex-shrink-0">
-        <div className="grid grid-cols-2 sm:block gap-4 sm:gap-0 text-center sm:text-right">
+        <div className="grid grid-cols-1 sm:grid-cols-2 sm:block gap-4 sm:gap-0 text-center sm:text-right">
           <div>
             <p className="text-sm sm:text-xs font-medium">${item.base_price.toFixed(2)}</p>
             <p className="text-sm sm:text-xs text-muted-foreground">

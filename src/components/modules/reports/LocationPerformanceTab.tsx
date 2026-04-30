@@ -36,7 +36,7 @@ export const LocationPerformanceTab = ({ locationPerformance, locationNames, loa
 
   return (
     <div className="space-y-3">
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         <Card className="p-3">
           <p className="text-xs text-muted-foreground">Total Locations</p>
           <p className="text-lg font-bold">{locationPerformance.length}</p>

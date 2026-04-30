@@ -177,7 +177,7 @@ export const VendorsTab = () => {
           </DialogHeader>
           {selectedVendor && (
             <div className="space-y-4">
-              <div className="grid grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                 <div><span className="text-muted-foreground">Contact:</span><div className="font-medium">{selectedVendor.contact_name}</div></div>
                 <div><span className="text-muted-foreground">Email:</span><div className="font-medium">{selectedVendor.email}</div></div>
                 <div><span className="text-muted-foreground">Phone:</span><div className="font-medium">{selectedVendor.phone}</div></div>
@@ -207,7 +207,7 @@ const AddVendorForm = ({ onCancel, onSubmit }: { onCancel: () => void; onSubmit:
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label>Vendor Name</Label>
           <Input value={formData.name} onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))} required />
@@ -217,7 +217,7 @@ const AddVendorForm = ({ onCancel, onSubmit }: { onCancel: () => void; onSubmit:
           <Input value={formData.contact_name} onChange={(e) => setFormData(p => ({ ...p, contact_name: e.target.value }))} />
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label>Email</Label>
           <Input type="email" value={formData.email} onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))} />
@@ -227,7 +227,7 @@ const AddVendorForm = ({ onCancel, onSubmit }: { onCancel: () => void; onSubmit:
           <Input value={formData.phone} onChange={(e) => setFormData(p => ({ ...p, phone: e.target.value }))} />
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         <div className="space-y-2">
           <Label>Payment Terms</Label>
           <Select value={formData.payment_terms} onValueChange={(v) => setFormData(p => ({ ...p, payment_terms: v }))}>
