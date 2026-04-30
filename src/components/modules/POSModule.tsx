@@ -254,12 +254,14 @@ export const POSModule = () => {
       // Simulate NFC reading delay
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      // Mock NFC payload - in real implementation, this would come from NFC reader
+      // Mock Omni-Payload — in real implementation this comes from the IDIA Life tap.
+      // scanned_intent: retail checkout session id (from /flexa-payment-processing).
+      // aca_hash:        the Auditable Consent Artifact (proof of consent for THIS tx).
+      // base_signature:  the signed USDC payload for the settlement network.
       const mockNfcPayload = {
-        walletAddress: '0x1234567890abcdef1234567890abcdef12345678',
-        amount: calculateGrandTotal() * 0.85, // Mock USDC rate
-        signature: 'a'.repeat(64), // Mock signature
-        timestamp: Date.now()
+        scanned_intent: `mock-intent-${Date.now()}`,
+        aca_hash: 'a'.repeat(64),
+        base_signature: 'b'.repeat(64),
       };
 
       const { data, error } = await supabase.functions.invoke('process-nfc-payment', {
@@ -625,7 +627,7 @@ export const POSModule = () => {
                 Place your IDIA wallet device near the reader
               </p>
               <div className="mt-4 text-primary font-mono">
-                ≈ {(calculateGrandTotal() * 0.85).toFixed(2)} USDC
+                ≈ {calculateGrandTotal().toFixed(2)} USDC
               </div>
             </div>
             
