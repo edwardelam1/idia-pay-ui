@@ -3,11 +3,12 @@ import { PayAppBlueprint } from "@/lib/provisioning-engine";
 import { DynamicModuleLoader } from "@/lib/module-registry";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { AutonomicWrapper } from "@/components/ui/AutonomicWrapper";
 import { useAutonomicEngine } from "@/hooks/useAutonomicEngine";
 import { useReconnectionSyncer } from "@/hooks/useReconnectionSyncer";
 import { useEventPublisher } from "@/hooks/useEventPublisher";
-import { LogOut, Settings, Bell, TrendingUp, Shield } from "lucide-react";
+import { LogOut, Settings, Bell, TrendingUp, Shield, Menu } from "lucide-react";
 
 interface SovereignDashboardProps {
   blueprint: PayAppBlueprint;
