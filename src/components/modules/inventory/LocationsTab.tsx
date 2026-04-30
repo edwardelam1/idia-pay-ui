@@ -130,7 +130,7 @@ const AddLocationForm = ({ onCancel, onSubmit }: { onCancel: () => void; onSubmi
         <Label>Name / Code</Label>
         <Input value={formData.name_code} onChange={(e) => setFormData(p => ({ ...p, name_code: e.target.value }))} placeholder="e.g. A1-R03-B01" required />
       </div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <Label>Type</Label>
           <Select value={formData.type} onValueChange={(v: any) => setFormData(p => ({ ...p, type: v }))}>

@@ -179,7 +179,7 @@ export const ApiKeysModal = ({ isOpen, onClose }: ApiKeysModalProps) => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 text-sm">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
                       <div>
                         <Label className="text-xs text-muted-foreground">Created</Label>
                         <div>{apiKey.createdAt}</div>
@@ -209,7 +209,7 @@ export const ApiKeysModal = ({ isOpen, onClose }: ApiKeysModalProps) => {
             <h3 className="text-lg font-semibold mb-4">Security Settings</h3>
             <Card>
               <CardContent className="pt-6 space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="webhookSecret">Webhook Secret</Label>
                     <Input

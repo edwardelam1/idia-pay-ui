@@ -207,7 +207,7 @@ export const MenuManagement = () => {
             <p className="text-sm">Add recipes to your menu from the Recipe Management tab</p>
           </div>
         ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
             {filteredItems.map((item) => (
               <Card key={item.id} className="cursor-pointer hover:shadow-md transition-shadow">
                 {item.image_url && (

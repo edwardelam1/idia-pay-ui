@@ -90,7 +90,7 @@ export const SystemPreferencesModal = ({ isOpen, onClose }: SystemPreferencesMod
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <div>
                   <Label htmlFor="dateFormat">Date Format</Label>
                   <Select value={preferences.dateFormat} onValueChange={(value) => updatePreference('dateFormat', value)}>
@@ -132,7 +132,7 @@ export const SystemPreferencesModal = ({ isOpen, onClose }: SystemPreferencesMod
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="language">Language</Label>
                   <Select value={preferences.language} onValueChange={(value) => updatePreference('language', value)}>
@@ -174,7 +174,7 @@ export const SystemPreferencesModal = ({ isOpen, onClose }: SystemPreferencesMod
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-3">
                   <h4 className="font-medium">Delivery Methods</h4>
                   <div className="space-y-2">
@@ -247,7 +247,7 @@ export const SystemPreferencesModal = ({ isOpen, onClose }: SystemPreferencesMod
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="sessionTimeout">Session Timeout (minutes)</Label>
                   <Input
@@ -298,7 +298,7 @@ export const SystemPreferencesModal = ({ isOpen, onClose }: SystemPreferencesMod
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <Label htmlFor="dataRetention">Data Retention (days)</Label>
                   <Input

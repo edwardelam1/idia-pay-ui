@@ -499,7 +499,7 @@ export const InventoryManagement = () => {
 
       <div className="flex-1 overflow-hidden p-4 flex flex-col space-y-4">
         {/* Stats Row */}
-        <div className="grid grid-cols-4 gap-4 flex-shrink-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 flex-shrink-0">
           <Card className="p-3">
             <div className="text-center">
               <div className="text-2xl font-bold">{inventoryItems.length}</div>
@@ -760,7 +760,7 @@ const AddInventoryItemForm = ({ onCancel, onSubmit, uomUnits, suppliers }: AddIn
       </DialogHeader>
       <form onSubmit={handleSubmit} className="space-y-4">
         {/* Row 1: Name, SKU, GTIN */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           <div className="space-y-1.5">
             <Label htmlFor="name">Item Name *</Label>
             <Input id="name" value={formData.name} onChange={(e) => update('name', e.target.value)} required />
@@ -782,7 +782,7 @@ const AddInventoryItemForm = ({ onCancel, onSubmit, uomUnits, suppliers }: AddIn
         </div>
 
         {/* Row 3: Category, UOM, Supplier */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           <div className="space-y-1.5">
             <Label>Category</Label>
             <Select value={formData.category} onValueChange={(v) => update('category', v)}>
@@ -828,7 +828,7 @@ const AddInventoryItemForm = ({ onCancel, onSubmit, uomUnits, suppliers }: AddIn
         </div>
 
         {/* Row 4: Individual Unit Size, UOM, Total Unit Count */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           <div className="space-y-1.5">
             <Label>Unit Size</Label>
             <Input type="number" step="0.01" value={formData.individual_unit_size} onChange={(e) => update('individual_unit_size', parseFloat(e.target.value) || 0)} min="0" placeholder="e.g. 10" />
@@ -862,7 +862,7 @@ const AddInventoryItemForm = ({ onCancel, onSubmit, uomUnits, suppliers }: AddIn
         </div>
 
         {/* Row 5: Case Count, QOH (disabled), Par Level, Cost */}
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           <div className="space-y-1.5">
             <Label>Case Count</Label>
             <Input type="number" value={formData.current_stock} onChange={(e) => { const v = parseInt(e.target.value) || 0; update('current_stock', v); update('par_level', v); }} min="0" />
@@ -882,7 +882,7 @@ const AddInventoryItemForm = ({ onCancel, onSubmit, uomUnits, suppliers }: AddIn
         </div>
 
         {/* Row 5: Tolerance */}
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           <div className="space-y-1.5">
             <Label>Tolerance Variance %</Label>
             <Input type="number" step="0.1" value={formData.tolerance_variance_pct} onChange={(e) => update('tolerance_variance_pct', parseFloat(e.target.value) || 5.0)} min="0" max="100" />
@@ -960,7 +960,7 @@ const RestockExistingItemForm = ({ existingItems, onCancel, onSubmit, uomUnits, 
         {selectedItem && (
           <>
             {/* Row 2: Read-only item info */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               <div className="space-y-1.5">
                 <Label>SKU</Label>
                 <Input value={selectedItem.sku || '—'} disabled className="bg-muted cursor-not-allowed" />
@@ -984,7 +984,7 @@ const RestockExistingItemForm = ({ existingItems, onCancel, onSubmit, uomUnits, 
             )}
 
             {/* Row 4: Stock Unit, Supplier (read-only) */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               <div className="space-y-1.5">
                 <Label>Stock Unit</Label>
                 <Input value={selectedItem.unit_of_measure} disabled className="bg-muted cursor-not-allowed" />
@@ -1000,7 +1000,7 @@ const RestockExistingItemForm = ({ existingItems, onCancel, onSubmit, uomUnits, 
             </div>
 
             {/* Row 5: Case Count (editable), QOH (live, disabled), Par Level (read-only), Cost (read-only) */}
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <div className="space-y-1.5">
                 <Label>Add Cases</Label>
                 <Input type="number" value={additionalCases} onChange={(e) => setAdditionalCases(parseInt(e.target.value) || 0)} min="0" autoFocus />

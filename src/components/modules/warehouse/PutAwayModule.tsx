@@ -324,7 +324,7 @@ export const PutAwayModule = () => {
                 {selectedTask.purchase_order_line_items && (
                   <div className="border rounded p-1.5">
                     <p className="text-[9px] font-medium mb-1">Item Details</p>
-                    <div className="grid grid-cols-2 gap-1 text-[8px]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1 text-[8px]">
                       <div><span className="text-muted-foreground">SKU:</span> {selectedTask.purchase_order_line_items.sku}</div>
                       <div><span className="text-muted-foreground">Qty:</span> {selectedTask.purchase_order_line_items.received_quantity}</div>
                       <div><span className="text-muted-foreground">Category:</span> {selectedTask.purchase_order_line_items.inventory_items.category}</div>

@@ -11,7 +11,7 @@ export const MenuStats = ({ menuItems, categoriesCount }: MenuStatsProps) => {
     : 0;
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-4 gap-3">
       <div className="text-center">
         <div className="text-lg font-bold">{menuItems.length}</div>
         <div className="text-xs text-muted-foreground">Total Items</div>

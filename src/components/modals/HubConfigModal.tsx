@@ -85,7 +85,7 @@ export const HubConfigModal = ({ isOpen, onClose }: HubConfigModalProps) => {
                   Enable/disable modules via app_manifest. Changes propagate to all devices on next sync.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="grid grid-cols-2 gap-4">
+              <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {Object.entries(modules).map(([key, enabled]) => (
                   <div key={key} className="flex items-center justify-between p-3 border rounded-lg">
                     <div className="flex items-center gap-2">
@@ -153,7 +153,7 @@ export const HubConfigModal = ({ isOpen, onClose }: HubConfigModalProps) => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                   <Card className="p-4 text-center">
                     <Smartphone className="h-8 w-8 mx-auto mb-2 text-primary" />
                     <p className="text-2xl font-bold">12</p>

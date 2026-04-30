@@ -328,7 +328,7 @@ export const LiveCheckout = ({ onClose }: LiveCheckoutProps) => {
                         <p className="text-sm text-muted-foreground text-center">
                           Customer notified. Choose payment method:
                         </p>
-                        <div className="grid grid-cols-2 gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           <Button
                             onClick={() => handleNFCPayment(order.id)}
                             disabled={isProcessing}

@@ -106,7 +106,7 @@ export const EditMemberDialog = ({ open, onOpenChange, member, templates, busine
           <div className="flex-1 overflow-y-auto mt-4 space-y-4 pr-1">
             {/* Personal Info Tab */}
             <TabsContent value="personal" className="mt-0 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Full Name</Label>
                   <Input value={form.name || ""} onChange={e => updateField("name", e.target.value)} />
@@ -116,7 +116,7 @@ export const EditMemberDialog = ({ open, onOpenChange, member, templates, busine
                   <Input type="email" value={form.email || ""} onChange={e => updateField("email", e.target.value)} />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Phone</Label>
                   <Input value={form.phone || ""} onChange={e => updateField("phone", e.target.value)} />
@@ -130,7 +130,7 @@ export const EditMemberDialog = ({ open, onOpenChange, member, templates, busine
                 <Label>Address</Label>
                 <Input value={form.address || ""} onChange={e => updateField("address", e.target.value)} placeholder="Street address" />
               </div>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <div className="space-y-2">
                   <Label>City</Label>
                   <Input value={form.city || ""} onChange={e => updateField("city", e.target.value)} />
@@ -144,7 +144,7 @@ export const EditMemberDialog = ({ open, onOpenChange, member, templates, busine
                   <Input value={form.zip || ""} onChange={e => updateField("zip", e.target.value)} />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Emergency Contact Name</Label>
                   <Input value={form.emergency_contact_name || ""} onChange={e => updateField("emergency_contact_name", e.target.value)} />
@@ -162,7 +162,7 @@ export const EditMemberDialog = ({ open, onOpenChange, member, templates, busine
 
             {/* Pay Info Tab */}
             <TabsContent value="pay" className="mt-0 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Salary Type</Label>
                   <Select value={form.salary_type || "hourly"} onValueChange={v => updateField("salary_type", v)}>
@@ -187,7 +187,7 @@ export const EditMemberDialog = ({ open, onOpenChange, member, templates, busine
                   </Select>
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Hourly Rate ($)</Label>
                   <Input type="number" step="0.01" value={form.hourly_rate ?? ""} onChange={e => updateField("hourly_rate", parseFloat(e.target.value) || 0)} />
@@ -197,7 +197,7 @@ export const EditMemberDialog = ({ open, onOpenChange, member, templates, busine
                   <Input type="number" step="0.01" value={form.overtime_rate ?? ""} onChange={e => updateField("overtime_rate", parseFloat(e.target.value) || 0)} />
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Tax Filing Status</Label>
                   <Select value={form.tax_filing_status || ""} onValueChange={v => updateField("tax_filing_status", v)}>
@@ -227,7 +227,7 @@ export const EditMemberDialog = ({ open, onOpenChange, member, templates, busine
 
             {/* Permissions Tab */}
             <TabsContent value="permissions" className="mt-0 space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Role</Label>
                   <Select value={form.role || "employee"} onValueChange={v => updateField("role", v)}>

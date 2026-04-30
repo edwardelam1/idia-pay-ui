@@ -231,7 +231,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
             </div>
 
             {/* Computed Totals */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               <div className="bg-muted/50 rounded-lg p-3 text-center">
                 <div className="text-xs text-muted-foreground">Total Inventory Value</div>
                 <div className="text-lg font-bold">{formatCurrency(calcTotalValue)}</div>
@@ -260,7 +260,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
             <Separator />
 
             {/* Row 1: Name, SKU, GTIN — matches Add form */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               <div className="space-y-1.5">
                 <Label htmlFor="edit-name">Item Name *</Label>
                 <Input id="edit-name" value={name} onChange={e => setName(e.target.value)} required />
@@ -282,7 +282,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
             </div>
 
             {/* Row 3: Category (dropdown), Stock Unit (dropdown), Supplier (dropdown) — matches Add form */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               <div className="space-y-1.5">
                 <Label>Category</Label>
                 <Select value={category} onValueChange={setCategory}>
@@ -328,7 +328,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
             </div>
 
             {/* Row 4: Unit Size, Unit Size UOM (dropdown), Pack Count — matches Add form */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               <div className="space-y-1.5">
                 <Label>Unit Size</Label>
                 <Input type="number" step="0.01" value={individualUnitSize} onChange={e => setIndividualUnitSize(parseFloat(e.target.value) || 0)} min="0" placeholder="e.g. 10" />
@@ -362,7 +362,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
             </div>
 
             {/* Row 5: Case Count, QOH (disabled), Par Level, Cost */}
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               <div className="space-y-1.5">
                 <Label>Case Count</Label>
                 <Input type="number" value={currentStock} onChange={e => { const v = Number(e.target.value); setCurrentStock(v); setParLevel(v); }} min="0" />
@@ -382,7 +382,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
             </div>
 
             {/* Row 6: Tolerance & Shelf Life — matches Add form */}
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
               <div className="space-y-1.5">
                 <Label>Tolerance Variance %</Label>
                 <Input type="number" step="0.1" value={toleranceVariancePct} onChange={e => setToleranceVariancePct(parseFloat(e.target.value) || 5.0)} min="0" max="100" />

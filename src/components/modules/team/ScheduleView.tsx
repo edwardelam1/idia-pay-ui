@@ -216,7 +216,7 @@ export const ScheduleView = ({ members, schedules, timeEntries, businessHours, o
 
         {/* Calendar View */}
         <TabsContent value="calendar" className="mt-4">
-          <div className="grid grid-cols-7 gap-1">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-1">
             {weekDays.map(day => (
               <div key={day.toISOString()} className="text-center">
                 <div className="text-sm font-medium p-2 bg-muted/50 rounded-t">
@@ -269,7 +269,7 @@ export const ScheduleView = ({ members, schedules, timeEntries, businessHours, o
               <Label>Date</Label>
               <Input type="date" value={shiftForm.schedule_date} onChange={e => setShiftForm(p => ({ ...p, schedule_date: e.target.value }))} />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>Start Time</Label>
                 <Input type="time" value={shiftForm.start_time} onChange={e => setShiftForm(p => ({ ...p, start_time: e.target.value }))} />
@@ -279,7 +279,7 @@ export const ScheduleView = ({ members, schedules, timeEntries, businessHours, o
                 <Input type="time" value={shiftForm.end_time} onChange={e => setShiftForm(p => ({ ...p, end_time: e.target.value }))} />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>Break (minutes)</Label>
                 <Input type="number" value={shiftForm.break_minutes} onChange={e => setShiftForm(p => ({ ...p, break_minutes: e.target.value }))} />

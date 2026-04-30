@@ -117,7 +117,7 @@ NOTES
               <CardTitle className="flex items-center text-sm"><FileText className="w-4 h-4 mr-2" />Financial Reports</CardTitle>
             </CardHeader>
             <CardContent className="p-3 pt-0">
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <Button variant="outline" className="h-12 flex flex-col items-center justify-center text-xs" onClick={() => handleGenerateReport("profit_loss")} disabled={isGenerating}>
                   <Calculator className="w-4 h-4 mb-1" /><span>P&L Statement</span>
                 </Button>
@@ -139,7 +139,7 @@ NOTES
               <CardTitle className="text-sm">Tax Summary — {selectedPeriod.replace(/_/g, " ").toUpperCase()}</CardTitle>
             </CardHeader>
             <CardContent className="p-3 pt-0">
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
                 <div className="text-center p-2 bg-muted rounded">
                   <div className="text-lg font-bold text-primary">${summary.totalTax.toFixed(2)}</div>
                   <div className="text-xs text-muted-foreground">Sales Tax</div>

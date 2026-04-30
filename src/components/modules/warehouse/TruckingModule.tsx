@@ -188,7 +188,7 @@ export const TruckingModule = () => {
       </div>
 
       {/* Quick Stats */}
-      <div className="grid grid-cols-4 gap-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
         <Card className="p-1.5">
           <div className="flex items-center justify-between">
             <div>
@@ -330,7 +330,7 @@ export const TruckingModule = () => {
         </TabsContent>
 
         <TabsContent value="docks" className="mt-2">
-          <div className="grid grid-cols-4 gap-1.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1.5">
             {docks.map((dock) => (
               <Card 
                 key={dock.id} 

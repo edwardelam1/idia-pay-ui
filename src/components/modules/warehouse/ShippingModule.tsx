@@ -157,7 +157,7 @@ export const ShippingModule = () => {
               </div>
             </CardHeader>
             <CardContent className="p-2 pt-0">
-              <div className="grid grid-cols-4 gap-2 mb-2 text-[9px]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-2 text-[9px]">
                 <div>
                   <p className="text-muted-foreground">Carrier</p>
                   <p className="font-medium">{shipment.carrier}</p>

@@ -283,7 +283,7 @@ export const BankSettingsModal = ({ isOpen, onClose }: BankSettingsModalProps) =
                 {/* Expanded edit form */}
                 {editingIdx === idx && (
                   <div className="mt-3 space-y-3 border-t pt-3" onClick={(e) => e.stopPropagation()}>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div className="space-y-1">
                         <Label className="text-xs">Label</Label>
                         <Input className="h-8 text-xs" value={acct.label} onChange={(e) => updateAccount(idx, "label", e.target.value)} placeholder="e.g. Payroll Account" />
@@ -299,7 +299,7 @@ export const BankSettingsModal = ({ isOpen, onClose }: BankSettingsModalProps) =
                       <Input className="h-8 text-xs" value={acct.account_holder} onChange={(e) => updateAccount(idx, "account_holder", e.target.value)} placeholder="Business legal name" />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div className="space-y-1">
                         <Label className="text-xs">Routing Number</Label>
                         <Input className="h-8 text-xs" value={acct.routing_number} onChange={(e) => updateAccount(idx, "routing_number", e.target.value.replace(/\D/g, "").slice(0, 9))} placeholder="9 digits" />
@@ -310,7 +310,7 @@ export const BankSettingsModal = ({ isOpen, onClose }: BankSettingsModalProps) =
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                       <div className="space-y-1">
                         <Label className="text-xs">Account Type</Label>
                         <Select value={acct.account_type} onValueChange={(v) => updateAccount(idx, "account_type", v)}>
