@@ -83,52 +83,105 @@ export const Dashboard = ({ blueprint, onWipeDevice }: SovereignDashboardProps) 
     );
   };
 
-  return (
-    <div className="min-h-[100dvh] flex bg-background">
-      {/* Sidebar */}
-      <aside className="w-60 border-r bg-card/50 backdrop-blur-sm flex flex-col flex-shrink-0">
-        <div className="p-4 border-b">
-          <h1 className="text-sm font-bold text-foreground truncate">{blueprint.clientOrganization}</h1>
-          <div className="flex items-center space-x-1 mt-1">
-            {blueprint.verticals.map((v, i) => (
-              <span key={i} className="text-[10px] text-muted-foreground uppercase tracking-tighter">
-                {v}
-                {i < blueprint.verticals.length - 1 ? " • " : ""}
-              </span>
-            ))}
-          </div>
-        </div>
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-        <nav className="flex-1 overflow-y-auto p-2 space-y-1">
-          {activeModules.map((mod) => (
-            <Button
-              key={mod.id}
-              variant={activeModuleId === mod.id ? "secondary" : "ghost"}
-              size="sm"
-              className="w-full justify-start text-xs"
-              onClick={() => handleModuleSwitch(mod.id)}
-            >
-              {mod.name}
-            </Button>
+  const handleMobileSwitch = (id: string) => {
+    setMobileNavOpen(false);
+    handleModuleSwitch(id);
+  };
+
+  const SidebarContents = ({ onPick }: { onPick: (id: string) => void }) => (
+    <>
+      <div className="p-3 border-b">
+        <h1 className="text-sm font-bold text-foreground truncate">{blueprint.clientOrganization}</h1>
+        <div className="flex items-center flex-wrap gap-x-1 mt-1">
+          {blueprint.verticals.map((v, i) => (
+            <span key={i} className="text-[10px] text-muted-foreground uppercase tracking-tighter">
+              {v}
+              {i < blueprint.verticals.length - 1 ? " • " : ""}
+            </span>
           ))}
-        </nav>
-
-        <div className="p-3 border-t space-y-2">
-          <div className="flex items-center space-x-2 text-xs text-muted-foreground">
-            <Shield className="w-3 h-3 text-success" />
-            <span>IDIA Liability Shield</span>
-            <span className="ml-auto inline-block w-2 h-2 rounded-full bg-success animate-pulse" />
-          </div>
-          <Button variant="outline" size="sm" className="w-full text-xs" onClick={handleUncoupleTerminal}>
-            <LogOut className="w-3 h-3 mr-1" />
-            Uncouple Terminal
-          </Button>
         </div>
+      </div>
+
+      <nav className="flex-1 overflow-y-auto p-2 space-y-1">
+        {activeModules.map((mod) => (
+          <Button
+            key={mod.id}
+            variant={activeModuleId === mod.id ? "secondary" : "ghost"}
+            size="sm"
+            className="w-full justify-start text-xs min-h-11 md:min-h-0"
+            onClick={() => onPick(mod.id)}
+          >
+            {mod.name}
+          </Button>
+        ))}
+      </nav>
+
+      <div className="p-2 border-t space-y-2">
+        <div className="flex items-center space-x-2 text-xs text-muted-foreground">
+          <Shield className="w-3 h-3 text-success" />
+          <span>IDIA Liability Shield</span>
+          <span className="ml-auto inline-block w-2 h-2 rounded-full bg-success animate-pulse" />
+        </div>
+        <Button variant="outline" size="sm" className="w-full text-xs min-h-11 md:min-h-0" onClick={handleUncoupleTerminal}>
+          <LogOut className="w-3 h-3 mr-1" />
+          Uncouple Terminal
+        </Button>
+      </div>
+    </>
+  );
+
+  return (
+    <div className="min-h-[100dvh] flex flex-col md:flex-row bg-background">
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex w-56 border-r bg-card/50 backdrop-blur-sm flex-col flex-shrink-0">
+        <SidebarContents onPick={handleModuleSwitch} />
       </aside>
+
+      {/* Mobile Sheet Sidebar */}
+      <Sheet open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
+        <SheetContent side="left" className="w-64 p-0 flex flex-col">
+          <SidebarContents onPick={handleMobileSwitch} />
+        </SheetContent>
+      </Sheet>
 
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col min-w-0">
-        <header className="h-12 border-b bg-card/50 backdrop-blur-sm flex items-center justify-between px-4 flex-shrink-0">
+        {/* Mobile header */}
+        <header className="md:hidden h-11 border-b bg-card/50 backdrop-blur-sm flex items-center justify-between px-2 flex-shrink-0 gap-2">
+          <SheetTrigger asChild>
+            <Button variant="ghost" size="icon" className="h-9 w-9" onClick={() => setMobileNavOpen(true)}>
+              <Menu className="w-5 h-5" />
+            </Button>
+          </SheetTrigger>
+          <div className="flex-1 min-w-0 flex items-center gap-1.5">
+            <span className="text-xs font-semibold truncate">{blueprint.clientOrganization}</span>
+            <TrendingUp className="w-3 h-3 text-muted-foreground flex-shrink-0" />
+            <span className="text-[10px] font-bold text-foreground">{(bhiScore * 100).toFixed(1)}%</span>
+          </div>
+          <div className="flex items-center gap-0.5 flex-shrink-0">
+            <AutonomicWrapper>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-9 w-9"
+                onClick={() => window.dispatchEvent(new CustomEvent("navigate-to-settings"))}
+              >
+                <Settings className="w-4 h-4" />
+              </Button>
+            </AutonomicWrapper>
+            <Button variant="ghost" size="icon" className="h-9 w-9 relative">
+              <Bell className="w-4 h-4" />
+              <span className="absolute top-1 right-1 w-3 h-3 bg-destructive rounded-full text-[8px] text-destructive-foreground flex items-center justify-center font-bold">
+                3
+              </span>
+            </Button>
+          </div>
+        </header>
+
+        {/* Desktop header */}
+        <header className="hidden md:flex h-11 border-b bg-card/50 backdrop-blur-sm items-center justify-between px-3 flex-shrink-0">
           <div className="flex items-center space-x-2">
             <TrendingUp className="w-3 h-3 text-muted-foreground" />
             <span className="text-xs text-muted-foreground">BHI™</span>
@@ -140,7 +193,6 @@ export const Dashboard = ({ blueprint, onWipeDevice }: SovereignDashboardProps) 
               {blueprint.provisioningCode}
             </Badge>
 
-            {/* Autonomic Engine Target: The Settings Toggle */}
             <AutonomicWrapper>
               <Button
                 variant="ghost"
