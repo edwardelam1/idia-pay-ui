@@ -66,11 +66,11 @@ export const LaborPayrollTab = ({ labor, timeEntries, loading }: Props) => {
 
       <div className="grid lg:grid-cols-2 gap-3">
         <Card>
-          <CardHeader className="p-3 pb-2">
+          <CardHeader className="p-2 md:p-3 pb-2">
             <CardTitle className="text-sm">Hours by Employee</CardTitle>
             <CardDescription className="text-xs">Aggregated for selected period</CardDescription>
           </CardHeader>
-          <CardContent className="p-3 pt-0">
+          <CardContent className="p-2 md:p-3 pt-0">
             {memberAgg.size > 0 ? (
               <Table>
                 <TableHeader>
@@ -105,11 +105,11 @@ export const LaborPayrollTab = ({ labor, timeEntries, loading }: Props) => {
         </Card>
 
         <Card>
-          <CardHeader className="p-3 pb-2">
+          <CardHeader className="p-2 md:p-3 pb-2">
             <CardTitle className="text-sm">Overtime Summary</CardTitle>
             <CardDescription className="text-xs">Overtime hours breakdown</CardDescription>
           </CardHeader>
-          <CardContent className="p-3 pt-0">
+          <CardContent className="p-2 md:p-3 pt-0">
             <div className="space-y-3">
               <div className="flex justify-between p-2 bg-muted/50 rounded">
                 <span className="text-sm">Regular Hours</span>

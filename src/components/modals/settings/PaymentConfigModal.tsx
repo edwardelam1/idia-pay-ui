@@ -111,7 +111,7 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6 pt-2">
+        <div className="space-y-3 md:space-y-4 pt-2">
           {/* Provider — IDIA only */}
           <div className="grid gap-3">
             {PROVIDERS.map((p) => {
@@ -119,7 +119,7 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
               const selected = activeProvider === p.key;
               return (
                 <Card key={p.key} className="border-2 border-primary bg-primary/5">
-                  <CardContent className="flex items-center gap-4 p-4">
+                  <CardContent className="flex items-center gap-2 md:gap-3 p-2 md:p-3">
                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                       <Icon className="h-5 w-5" />
                     </div>
@@ -151,9 +151,9 @@ export const PaymentConfigModal = ({ isOpen, onClose }: PaymentConfigModalProps)
           </div>
 
           {/* IDIA credentials */}
-          <div className="space-y-4 rounded-lg border p-4 bg-muted/30">
+          <div className="space-y-2 md:space-y-3 rounded-lg border p-4 bg-muted/30">
             <h4 className="text-sm font-semibold">IDIA / Worldpay Credentials</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
               <div>
                 <Label htmlFor="idia-merchant">Merchant ID</Label>
                 <Input

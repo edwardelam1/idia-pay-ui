@@ -62,11 +62,11 @@ export const MenuEngineeringTab = ({ items, loading }: Props) => {
       </div>
 
       <Card>
-        <CardHeader className="p-3 pb-2">
+        <CardHeader className="p-2 md:p-3 pb-2">
           <CardTitle className="text-sm">Item Profitability Matrix</CardTitle>
           <CardDescription className="text-xs">Menu items classified by popularity and profitability</CardDescription>
         </CardHeader>
-        <CardContent className="p-3 pt-0 max-h-96 overflow-y-auto">
+        <CardContent className="p-2 md:p-3 pt-0 max-h-96 overflow-y-auto">
           <Table>
             <TableHeader>
               <TableRow>

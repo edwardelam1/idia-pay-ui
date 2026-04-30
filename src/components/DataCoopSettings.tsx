@@ -46,7 +46,7 @@ export const DataCoopSettings = () => {
   };
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-3 md:space-y-4 p-3 md:p-4">
       <div>
         <h2 className="text-2xl font-bold flex items-center">
           <Database className="w-6 h-6 mr-2 text-primary" />
@@ -58,7 +58,7 @@ export const DataCoopSettings = () => {
       </div>
 
       {/* Status Overview */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium flex items-center">
@@ -104,7 +104,7 @@ export const DataCoopSettings = () => {
         <CardHeader>
           <CardTitle>Data Sharing Controls</CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6">
+        <CardContent className="space-y-3 md:space-y-4">
           <div className="flex items-center justify-between">
             <div>
               <Label htmlFor="coop-toggle" className="text-base font-medium">

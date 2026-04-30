@@ -110,8 +110,8 @@ export const TeamManagement = () => {
           </div>
 
           {/* Members Tab */}
-          <TabsContent value="members" className="flex-1 overflow-hidden flex flex-col p-4 space-y-4 mt-0">
-            <div className="flex gap-4 flex-shrink-0">
+          <TabsContent value="members" className="flex-1 overflow-hidden flex flex-col p-4 space-y-2 md:space-y-3 mt-0">
+            <div className="flex gap-2 md:gap-3 flex-shrink-0">
               <Input
                 placeholder="Search team members..."
                 value={searchTerm}
@@ -138,7 +138,7 @@ export const TeamManagement = () => {
                   <p className="text-xs mt-1">Click "Add Member" to get started.</p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
                   {filteredMembers.map(member => (
                     <TeamMemberCard
                       key={member.id}

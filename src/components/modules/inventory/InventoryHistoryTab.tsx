@@ -67,8 +67,8 @@ export const InventoryHistoryTab = () => {
     : entries.filter(e => e.action === filterAction);
 
   return (
-    <div className="flex flex-col h-full space-y-4">
-      <div className="flex items-center gap-4 flex-shrink-0">
+    <div className="flex flex-col h-full space-y-2 md:space-y-3">
+      <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
         <Select value={filterAction} onValueChange={setFilterAction}>
           <SelectTrigger className="w-48">
             <SelectValue />
@@ -88,16 +88,16 @@ export const InventoryHistoryTab = () => {
         <ScrollArea className="h-full">
           <div className="divide-y divide-border">
             {loading ? (
-              <div className="p-8 text-center text-muted-foreground">Loading history...</div>
+              <div className="p-3 md:p-5 text-center text-muted-foreground">Loading history...</div>
             ) : filtered.length === 0 ? (
-              <div className="p-8 text-center text-muted-foreground">No history entries found.</div>
+              <div className="p-3 md:p-5 text-center text-muted-foreground">No history entries found.</div>
             ) : (
               filtered.map(entry => {
                 const config = actionConfig[entry.action] || actionConfig.added;
                 const Icon = config.icon;
                 const date = new Date(entry.created_at);
                 return (
-                  <div key={entry.id} className="flex items-center gap-4 px-4 py-3 hover:bg-muted/50 transition-colors">
+                  <div key={entry.id} className="flex items-center gap-2 md:gap-3 px-4 py-3 hover:bg-muted/50 transition-colors">
                     <div className={`flex items-center justify-center w-8 h-8 rounded-full ${config.color}`}>
                       <Icon className="w-4 h-4" />
                     </div>

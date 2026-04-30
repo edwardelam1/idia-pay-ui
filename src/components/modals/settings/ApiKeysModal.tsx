@@ -108,7 +108,7 @@ export const ApiKeysModal = ({ isOpen, onClose }: ApiKeysModalProps) => {
           </DialogDescription>
         </DialogHeader>
         
-        <div className="space-y-6">
+        <div className="space-y-3 md:space-y-4">
           <div>
             <h3 className="text-lg font-semibold mb-4">API Keys</h3>
             
@@ -179,7 +179,7 @@ export const ApiKeysModal = ({ isOpen, onClose }: ApiKeysModalProps) => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 text-sm">
                       <div>
                         <Label className="text-xs text-muted-foreground">Created</Label>
                         <div>{apiKey.createdAt}</div>
@@ -208,8 +208,8 @@ export const ApiKeysModal = ({ isOpen, onClose }: ApiKeysModalProps) => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Security Settings</h3>
             <Card>
-              <CardContent className="pt-6 space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <CardContent className="pt-3 md:pt-4 space-y-2 md:space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                   <div>
                     <Label htmlFor="webhookSecret">Webhook Secret</Label>
                     <Input

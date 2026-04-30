@@ -91,8 +91,8 @@ export const VendorsTab = () => {
   };
 
   return (
-    <div className="flex flex-col h-full space-y-4">
-      <div className="flex gap-4 flex-shrink-0">
+    <div className="flex flex-col h-full space-y-2 md:space-y-3">
+      <div className="flex gap-2 md:gap-3 flex-shrink-0">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input placeholder="Search vendors..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-10" />
@@ -176,8 +176,8 @@ export const VendorsTab = () => {
             </DialogTitle>
           </DialogHeader>
           {selectedVendor && (
-            <div className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div className="space-y-2 md:space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 text-sm">
                 <div><span className="text-muted-foreground">Contact:</span><div className="font-medium">{selectedVendor.contact_name}</div></div>
                 <div><span className="text-muted-foreground">Email:</span><div className="font-medium">{selectedVendor.email}</div></div>
                 <div><span className="text-muted-foreground">Phone:</span><div className="font-medium">{selectedVendor.phone}</div></div>
@@ -206,8 +206,8 @@ const AddVendorForm = ({ onCancel, onSubmit }: { onCancel: () => void; onSubmit:
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <form onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
         <div className="space-y-2">
           <Label>Vendor Name</Label>
           <Input value={formData.name} onChange={(e) => setFormData(p => ({ ...p, name: e.target.value }))} required />
@@ -217,7 +217,7 @@ const AddVendorForm = ({ onCancel, onSubmit }: { onCancel: () => void; onSubmit:
           <Input value={formData.contact_name} onChange={(e) => setFormData(p => ({ ...p, contact_name: e.target.value }))} />
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
         <div className="space-y-2">
           <Label>Email</Label>
           <Input type="email" value={formData.email} onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))} />
@@ -227,7 +227,7 @@ const AddVendorForm = ({ onCancel, onSubmit }: { onCancel: () => void; onSubmit:
           <Input value={formData.phone} onChange={(e) => setFormData(p => ({ ...p, phone: e.target.value }))} />
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
         <div className="space-y-2">
           <Label>Payment Terms</Label>
           <Select value={formData.payment_terms} onValueChange={(v) => setFormData(p => ({ ...p, payment_terms: v }))}>

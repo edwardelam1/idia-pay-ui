@@ -28,7 +28,7 @@ export const IntegrationsModal = ({ isOpen, onClose }: IntegrationsModalProps) =
         </DialogHeader>
 
         <Card className="border-dashed">
-          <CardContent className="p-6 flex items-start gap-3">
+          <CardContent className="p-2 md:p-3 md:p-4 flex items-start gap-3">
             <Lock className="h-5 w-5 mt-0.5 text-muted-foreground flex-shrink-0" />
             <div className="space-y-2 text-sm">
               <p className="font-medium">Sovereign stack — no external connectors</p>

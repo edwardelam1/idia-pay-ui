@@ -74,9 +74,9 @@ export const MenuHistoryPanel = ({ onBack }: MenuHistoryPanelProps) => {
       <ScrollArea className="flex-1 min-h-0">
         <div className="p-3 space-y-2">
           {loading ? (
-            <div className="text-center py-8 text-muted-foreground">Loading history...</div>
+            <div className="text-center py-3 md:py-5 text-muted-foreground">Loading history...</div>
           ) : entries.length === 0 ? (
-            <div className="text-center py-8 text-muted-foreground">
+            <div className="text-center py-3 md:py-5 text-muted-foreground">
               <History className="w-12 h-12 mx-auto mb-4 opacity-50" />
               <h3 className="text-lg font-medium mb-2">No History</h3>
               <p className="text-sm">Menu item changes will appear here</p>

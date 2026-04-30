@@ -79,14 +79,14 @@ export const PermissionsManager = ({ permissions, templates, onAddTemplate, onUp
   }, {} as Record<string, Permission[]>);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-2 md:space-y-3">
       <Tabs defaultValue="templates">
         <TabsList>
           <TabsTrigger value="templates">Permission Templates</TabsTrigger>
           <TabsTrigger value="permissions">All Permissions</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="templates" className="space-y-4 mt-4">
+        <TabsContent value="templates" className="space-y-2 md:space-y-3 mt-4">
           <div className="flex items-center justify-between">
             <p className="text-sm text-muted-foreground">Create reusable permission sets to quickly assign to new team members</p>
             <Button size="sm" onClick={openNewTemplate}>
@@ -101,7 +101,7 @@ export const PermissionsManager = ({ permissions, templates, onAddTemplate, onUp
               <p className="text-xs mt-1">Create one to streamline team onboarding.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
               {templates.map(template => {
                 const perms = (template.permissions || {}) as Record<string, boolean>;
                 const enabledCount = Object.values(perms).filter(Boolean).length;
@@ -149,7 +149,7 @@ export const PermissionsManager = ({ permissions, templates, onAddTemplate, onUp
           )}
         </TabsContent>
 
-        <TabsContent value="permissions" className="space-y-4 mt-4">
+        <TabsContent value="permissions" className="space-y-2 md:space-y-3 mt-4">
           <p className="text-sm text-muted-foreground">All available permissions that can be assigned to team members and templates</p>
           {Object.entries(groupedPermissions).map(([category, perms]) => (
             <Card key={category}>
@@ -185,8 +185,8 @@ export const PermissionsManager = ({ permissions, templates, onAddTemplate, onUp
             <DialogDescription>Configure which permissions this template grants</DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-2 md:space-y-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
               <div className="space-y-2">
                 <Label>Template Name</Label>
                 <Input value={templateForm.name} onChange={e => setTemplateForm(p => ({ ...p, name: e.target.value }))} placeholder="e.g. Shift Lead" />

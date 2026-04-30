@@ -814,7 +814,7 @@ export const RecipeManagement = () => {
                     <Label className="text-xs">Menu Price *</Label>
                     <div className="relative">
                       <DollarSign className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 text-muted-foreground" />
-                      <Input className="h-7 text-xs pl-6" type="number" step="0.01" min="0" value={newRecipe.base_price}
+                      <Input className="h-7 text-xs pl-3 md:pl-4" type="number" step="0.01" min="0" value={newRecipe.base_price}
                         onChange={(e) => setNewRecipe(prev => ({ ...prev, base_price: parseFloat(e.target.value) || 0 }))} />
                     </div>
                   </div>
@@ -1057,7 +1057,7 @@ export const RecipeManagement = () => {
                       <Label className="text-xs">Menu Price *</Label>
                       <div className="relative">
                         <DollarSign className="absolute left-2 top-1/2 -translate-y-1/2 w-3 h-3 text-muted-foreground" />
-                        <Input className="h-7 text-xs pl-6" type="number" step="0.01" min="0" value={editForm.base_price} onChange={(e) => setEditForm((p: any) => ({ ...p, base_price: parseFloat(e.target.value) || 0 }))} />
+                        <Input className="h-7 text-xs pl-3 md:pl-4" type="number" step="0.01" min="0" value={editForm.base_price} onChange={(e) => setEditForm((p: any) => ({ ...p, base_price: parseFloat(e.target.value) || 0 }))} />
                       </div>
                     </div>
                   </div>
@@ -1220,7 +1220,7 @@ export const RecipeManagement = () => {
               placeholder="Search recipes..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-8 h-8 text-xs"
+              className="pl-3 md:pl-5 h-8 text-xs"
             />
           </div>
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
@@ -1252,7 +1252,7 @@ export const RecipeManagement = () => {
               <ScrollArea className="h-full">
                 <div className="p-3">
                   {filteredRecipes.length === 0 ? (
-                    <div className="text-center py-8 text-muted-foreground">
+                    <div className="text-center py-3 md:py-5 text-muted-foreground">
                       <BookOpen className="w-12 h-12 mx-auto mb-4 opacity-50" />
                       <h3 className="text-lg font-medium mb-2">No Recipes Found</h3>
                       <p className="text-sm">Create your first recipe using inventory items</p>
@@ -1405,9 +1405,9 @@ const RecipeHistoryTab = () => {
       <ScrollArea className="h-full">
         <div className="divide-y divide-border">
           {loading ? (
-            <div className="p-8 text-center text-muted-foreground">Loading history...</div>
+            <div className="p-3 md:p-5 text-center text-muted-foreground">Loading history...</div>
           ) : entries.length === 0 ? (
-            <div className="p-8 text-center text-muted-foreground">
+            <div className="p-3 md:p-5 text-center text-muted-foreground">
               <History className="w-12 h-12 mx-auto mb-4 opacity-50" />
               <h3 className="text-lg font-medium mb-2">No History Yet</h3>
               <p className="text-sm">Recipe actions will appear here</p>
@@ -1417,7 +1417,7 @@ const RecipeHistoryTab = () => {
               const config = actionConfig[entry.action] || actionConfig.created;
               const date = new Date(entry.created_at);
               return (
-                <div key={entry.id} className="flex items-center gap-4 px-4 py-3 hover:bg-muted/50 transition-colors">
+                <div key={entry.id} className="flex items-center gap-2 md:gap-3 px-4 py-3 hover:bg-muted/50 transition-colors">
                   <div className="flex-1 min-w-0">
                     <div className="font-medium text-sm truncate">{entry.recipe_name}</div>
                     {entry.note && (

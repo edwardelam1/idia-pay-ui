@@ -155,9 +155,9 @@ export const InventoryTransferModal = ({ isOpen, onClose }: InventoryTransferMod
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-3 md:space-y-4">
           {/* Location Selection */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 items-center">
             <div className="space-y-2">
               <label className="text-sm font-medium">From Location</label>
               <Select value={sourceLocation} onValueChange={setSourceLocation}>

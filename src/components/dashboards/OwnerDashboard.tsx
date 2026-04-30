@@ -97,7 +97,7 @@ export const OwnerDashboard = ({ businessHealthIndex }: OwnerDashboardProps) => 
               <div className="flex-1 lg:pr-3 flex flex-col space-y-3 overflow-hidden">
                 {/* BHI Header */}
                 <Card className="bg-gradient-hero text-white flex-shrink-0">
-                  <CardHeader className="p-3">
+                  <CardHeader className="p-2 md:p-3">
                     <div className="flex items-center justify-between">
                       <div>
                         <CardTitle className="text-lg">Business Health Index™</CardTitle>
@@ -164,7 +164,7 @@ export const OwnerDashboard = ({ businessHealthIndex }: OwnerDashboardProps) => 
 
                 {/* Activity Feed - Expanded */}
                 <Card className="flex-1 min-h-0 overflow-hidden">
-                  <CardHeader className="p-3 flex-shrink-0">
+                  <CardHeader className="p-2 md:p-3 flex-shrink-0">
                     <CardTitle className="text-sm">Recent Activity & Alerts</CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0 px-3 pb-3 h-full overflow-hidden flex flex-col">
@@ -217,7 +217,7 @@ export const OwnerDashboard = ({ businessHealthIndex }: OwnerDashboardProps) => 
               {/* Right Column - Quick Actions (35%) */}
               <div className="lg:w-80 lg:flex-shrink-0 mt-3 lg:mt-0">
                 <Card className="h-full">
-                  <CardHeader className="p-3">
+                  <CardHeader className="p-2 md:p-3">
                     <CardTitle className="text-sm">Quick Actions</CardTitle>
                     <CardDescription className="text-xs">
                       Corporate management tools & settings
@@ -335,13 +335,13 @@ export const OwnerDashboard = ({ businessHealthIndex }: OwnerDashboardProps) => 
           <TabsContent value="settings" className="h-full m-0">
             <div className="h-full p-3 overflow-y-auto">
               <Card className="h-full">
-                <CardHeader className="p-3">
+                <CardHeader className="p-2 md:p-3">
                   <CardTitle className="text-sm">System Settings</CardTitle>
                   <CardDescription className="text-xs">
                     Configure global system preferences and integrations
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="p-3 space-y-3">
+                <CardContent className="p-2 md:p-3 space-y-3">
                   <div className="grid md:grid-cols-2 gap-3">
                     <div className="space-y-2">
                       <h3 className="text-sm font-semibold">Business Configuration</h3>

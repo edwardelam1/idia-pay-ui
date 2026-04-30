@@ -88,7 +88,7 @@ export const EmbeddableCheckoutModal = ({ isOpen, onClose }: EmbeddableCheckoutM
             <TabsTrigger value="settings">Page Settings</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="generate" className="space-y-4 mt-4">
+          <TabsContent value="generate" className="space-y-2 md:space-y-3 mt-4">
             {/* Quick Generate */}
             <Card>
               <CardHeader className="pb-3">
@@ -100,8 +100,8 @@ export const EmbeddableCheckoutModal = ({ isOpen, onClose }: EmbeddableCheckoutM
                   Create a unique checkout_url for transaction carts that can be shared via SMS/Email
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <CardContent className="space-y-2 md:space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                   <div className="space-y-2">
                     <Label>Cart/Order ID</Label>
                     <Input placeholder="e.g., ORD-12345" />
@@ -151,7 +151,7 @@ export const EmbeddableCheckoutModal = ({ isOpen, onClose }: EmbeddableCheckoutM
             </Card>
           </TabsContent>
 
-          <TabsContent value="recent" className="space-y-4 mt-4">
+          <TabsContent value="recent" className="space-y-2 md:space-y-3 mt-4">
             <Card>
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm">Recent Checkout Links</CardTitle>
@@ -190,7 +190,7 @@ export const EmbeddableCheckoutModal = ({ isOpen, onClose }: EmbeddableCheckoutM
             </Card>
           </TabsContent>
 
-          <TabsContent value="settings" className="space-y-4 mt-4">
+          <TabsContent value="settings" className="space-y-2 md:space-y-3 mt-4">
             <Card>
               <CardHeader className="pb-3">
                 <CardTitle className="text-sm flex items-center gap-2">
@@ -201,7 +201,7 @@ export const EmbeddableCheckoutModal = ({ isOpen, onClose }: EmbeddableCheckoutM
                   Configure the responsive, branded Web Payment Page hosted by IDIA
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-2 md:space-y-3">
                 <div className="flex items-center justify-between p-3 border rounded-lg">
                   <div>
                     <Label className="font-medium">IDIA Life Web Login (WEB-M.4.3)</Label>
@@ -250,7 +250,7 @@ export const EmbeddableCheckoutModal = ({ isOpen, onClose }: EmbeddableCheckoutM
 
             {/* Visual Trust Signal */}
             <Card className="border-primary/50 bg-primary/5">
-              <CardContent className="p-4 flex items-start gap-3">
+              <CardContent className="p-2 md:p-3 flex items-start gap-3">
                 <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
                 <div>
                   <p className="text-sm font-medium">Visual Trust (POS-M.3.3)</p>

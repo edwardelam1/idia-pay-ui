@@ -72,11 +72,11 @@ export const ProfitLossTab = ({ profitLoss, loading }: Props) => {
       </div>
 
       <Card>
-        <CardHeader className="p-3 pb-2">
+        <CardHeader className="p-2 md:p-3 pb-2">
           <CardTitle className="text-sm">Profit & Loss Statement</CardTitle>
           <CardDescription className="text-xs">Live P&L from General Ledger entries</CardDescription>
         </CardHeader>
-        <CardContent className="p-3 pt-0">
+        <CardContent className="p-2 md:p-3 pt-0">
           <div className="space-y-1">
             {/* Revenue Section */}
             <div className="font-semibold text-sm py-1 border-b">Revenue</div>

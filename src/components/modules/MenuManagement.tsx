@@ -189,7 +189,7 @@ export const MenuManagement = () => {
       </div>
 
       <div className="flex-shrink-0 px-3 py-2 border-b">
-        <div className="flex gap-4 text-xs text-muted-foreground">
+        <div className="flex gap-2 md:gap-3 text-xs text-muted-foreground">
           <span>{menuItems.length} items</span>
           <span>{categories.length} categories</span>
           <span>{menuItems.filter(i => i.is_active).length} active</span>
@@ -199,9 +199,9 @@ export const MenuManagement = () => {
       <ScrollArea className="flex-1 min-h-0">
         <div className="p-3">
         {loading ? (
-          <div className="text-center py-8 text-muted-foreground">Loading menu...</div>
+          <div className="text-center py-3 md:py-5 text-muted-foreground">Loading menu...</div>
         ) : menuItems.length === 0 ? (
-          <div className="text-center py-8 text-muted-foreground">
+          <div className="text-center py-3 md:py-5 text-muted-foreground">
             <Package className="w-12 h-12 mx-auto mb-4 opacity-50" />
             <h3 className="text-lg font-medium mb-2">No Menu Items</h3>
             <p className="text-sm">Add recipes to your menu from the Recipe Management tab</p>

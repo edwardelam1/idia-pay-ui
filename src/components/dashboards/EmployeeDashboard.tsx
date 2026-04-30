@@ -80,8 +80,8 @@ export const EmployeeDashboard = ({ businessHealthIndex }: EmployeeDashboardProp
                 Clock in and out for your shifts
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="text-center space-y-4">
+            <CardContent className="space-y-3 md:space-y-4">
+              <div className="text-center space-y-2 md:space-y-3">
                 <div className="text-4xl font-mono font-bold">
                   {currentTime.toLocaleTimeString()}
                 </div>
@@ -178,7 +178,7 @@ export const EmployeeDashboard = ({ businessHealthIndex }: EmployeeDashboardProp
                 <CardTitle>Today's Performance</CardTitle>
                 <CardDescription>Your sales metrics for today</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-2 md:space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium">Transactions Processed</span>
                   <span className="text-lg font-bold">{employeeStats.todayTransactions}</span>
@@ -203,7 +203,7 @@ export const EmployeeDashboard = ({ businessHealthIndex }: EmployeeDashboardProp
                 <CardTitle>This Week's Summary</CardTitle>
                 <CardDescription>Weekly performance overview</CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-2 md:space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium">Total Transactions</span>
                   <span className="text-lg font-bold">234</span>
@@ -230,7 +230,7 @@ export const EmployeeDashboard = ({ businessHealthIndex }: EmployeeDashboardProp
               <CardTitle>Recent Achievements</CardTitle>
               <CardDescription>Your recent accomplishments and recognition</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-2 md:space-y-3">
               <div className="flex items-center space-x-3 p-3 bg-success/10 border border-success/20 rounded-lg">
                 <TrendingUp className="w-6 h-6 text-success" />
                 <div>

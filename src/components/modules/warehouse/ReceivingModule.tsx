@@ -453,7 +453,7 @@ export const ReceivingModule = () => {
           </CardHeader>
           <CardContent className="p-2 pt-0">
             {purchaseOrders.length === 0 ? (
-              <div className="text-center py-8 text-muted-foreground text-xs">
+              <div className="text-center py-3 md:py-5 text-muted-foreground text-xs">
                 No purchase orders found. Create one to start receiving.
               </div>
             ) : (

@@ -15,9 +15,9 @@ export const LocalReports = () => {
     : null;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3 md:space-y-4">
       {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Period Revenue</CardTitle>
@@ -65,7 +65,7 @@ export const LocalReports = () => {
         </Card>
       </div>
 
-      <Tabs defaultValue="daily" className="space-y-4">
+      <Tabs defaultValue="daily" className="space-y-2 md:space-y-3">
         <TabsList>
           <TabsTrigger value="daily">Daily Sales</TabsTrigger>
           <TabsTrigger value="performance">Performance</TabsTrigger>
@@ -108,7 +108,7 @@ export const LocalReports = () => {
                   {bestDay && (
                     <div className="mt-6 p-4 bg-muted/50 rounded-lg">
                       <h4 className="font-medium mb-2">Weekly Highlights</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 text-sm">
                         <div>
                           <p className="text-muted-foreground">Best Day</p>
                           <p className="font-medium">{bestDay.day} — ${bestDay.sales.toFixed(2)}</p>
@@ -126,7 +126,7 @@ export const LocalReports = () => {
                   )}
                 </>
               ) : (
-                <p className="text-sm text-muted-foreground py-8 text-center">
+                <p className="text-sm text-muted-foreground py-3 md:py-5 text-center">
                   No sales data yet — process transactions through POS to see reports here.
                 </p>
               )}

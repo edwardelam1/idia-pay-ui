@@ -141,8 +141,8 @@ export const TimesheetModule = () => {
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div className="space-y-3 md:space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Staff on Duty</CardTitle>
@@ -185,7 +185,7 @@ export const TimesheetModule = () => {
         </Card>
       </div>
 
-      <Tabs defaultValue="current" className="space-y-4">
+      <Tabs defaultValue="current" className="space-y-2 md:space-y-3">
         <TabsList>
           <TabsTrigger value="current">Current Shifts</TabsTrigger>
           <TabsTrigger value="approvals">Pending Approvals</TabsTrigger>
@@ -227,7 +227,7 @@ export const TimesheetModule = () => {
                   </TableBody>
                 </Table>
               ) : (
-                <div className="text-center py-8 text-muted-foreground text-sm">
+                <div className="text-center py-3 md:py-5 text-muted-foreground text-sm">
                   No active shifts — clock in employees to see them here
                 </div>
               )}
@@ -284,7 +284,7 @@ export const TimesheetModule = () => {
                   </div>
                 </>
               ) : (
-                <div className="text-center py-8 text-muted-foreground text-sm">
+                <div className="text-center py-3 md:py-5 text-muted-foreground text-sm">
                   No pending approvals
                 </div>
               )}
@@ -329,7 +329,7 @@ export const TimesheetModule = () => {
                   </Table>
                 </div>
               ) : (
-                <div className="text-center py-8 text-muted-foreground text-sm">
+                <div className="text-center py-3 md:py-5 text-muted-foreground text-sm">
                   No schedules for this week — create shifts in Team Management
                 </div>
               )}

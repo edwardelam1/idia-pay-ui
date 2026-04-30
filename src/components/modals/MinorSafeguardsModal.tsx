@@ -61,10 +61,10 @@ export const MinorSafeguardsModal = ({ isOpen, onClose }: MinorSafeguardsModalPr
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-3 md:space-y-4">
           {/* Compliance Status */}
           <Card className="border-success/50 bg-success/5">
-            <CardContent className="p-4 flex items-center gap-3">
+            <CardContent className="p-2 md:p-3 flex items-center gap-3">
               <CheckCircle2 className="h-5 w-5 text-success" />
               <div>
                 <p className="text-sm font-medium">HCD Compliance Status: Active</p>
@@ -86,7 +86,7 @@ export const MinorSafeguardsModal = ({ isOpen, onClose }: MinorSafeguardsModalPr
                 Enforce login restrictions for minor employees based on time of day
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
+            <CardContent className="space-y-2 md:space-y-3">
               <div className="flex items-center justify-between p-3 border rounded-lg">
                 <div>
                   <Label className="font-medium">Enable Shift Restrictions</Label>
@@ -101,7 +101,7 @@ export const MinorSafeguardsModal = ({ isOpen, onClose }: MinorSafeguardsModalPr
               </div>
 
               {settings.shiftRestrictionEnabled && (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3 bg-muted rounded-lg">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3 p-3 bg-muted rounded-lg">
                   <div className="space-y-2">
                     <Label>Earliest Login Time</Label>
                     <Input 

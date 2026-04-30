@@ -188,9 +188,9 @@ export const ProcessPayrollModal = ({ isOpen, onClose }: ProcessPayrollModalProp
 
         {/* NFC Active Payment UI */}
         {payrollMode === 'nfc-active' && currentTapEmployee && (
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-3">
             {/* NFC Animation Area */}
-            <div className="relative flex flex-col items-center justify-center p-8 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border-2 border-dashed border-primary/30">
+            <div className="relative flex flex-col items-center justify-center p-3 md:p-5 bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl border-2 border-dashed border-primary/30">
               {/* Animated NFC Icon */}
               <div className="relative mb-6">
                 <div className={`absolute inset-0 rounded-full bg-primary/20 ${nfcState.status === 'searching' ? 'animate-ping' : ''}`} 
@@ -294,7 +294,7 @@ export const ProcessPayrollModal = ({ isOpen, onClose }: ProcessPayrollModalProp
 
         {/* Tap-to-Pay Employee List */}
         {payrollMode === 'tap-to-pay' && (
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Nfc className="w-5 h-5 text-primary" />
@@ -385,9 +385,9 @@ export const ProcessPayrollModal = ({ isOpen, onClose }: ProcessPayrollModalProp
 
         {/* Batch Payroll Mode */}
         {payrollMode === 'batch' && (
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-3">
             {/* Pay Period Selection */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
               <div className="space-y-2">
                 <label className="text-sm font-medium">Pay Period Start</label>
                 <div className="relative">

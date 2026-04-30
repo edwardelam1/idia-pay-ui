@@ -93,7 +93,7 @@ export const GlobalMenuUpdateModal = ({ isOpen, onClose }: GlobalMenuUpdateModal
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-3 md:space-y-4">
           {/* Update Type */}
           <div className="space-y-3">
             <label className="text-sm font-medium">Update Type</label>

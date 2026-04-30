@@ -28,7 +28,7 @@ export const MenuCategorySection = ({
     <Collapsible open={isExpanded} onOpenChange={onToggle}>
       <Card>
         <CollapsibleTrigger className="w-full">
-          <CardHeader className="p-3">
+          <CardHeader className="p-2 md:p-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
                 {isExpanded ? (
@@ -43,7 +43,7 @@ export const MenuCategorySection = ({
           </CardHeader>
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <CardContent className="p-3 pt-0">
+          <CardContent className="p-2 md:p-3 pt-0">
             <div className="space-y-2 max-h-64 overflow-y-auto">
               {items.map((item) => (
                 <MenuItemCard
