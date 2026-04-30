@@ -237,7 +237,7 @@ export const AffiliateManagement = () => {
           <CardContent>
             <div className="text-2xl font-bold">${totalCommissionsPaid.toFixed(2)}</div>
             <p className="text-xs text-muted-foreground">
-              IDIA-USD paid to creators
+              USDC paid to creators
             </p>
           </CardContent>
         </Card>

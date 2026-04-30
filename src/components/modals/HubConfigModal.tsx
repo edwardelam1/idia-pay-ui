@@ -127,7 +127,7 @@ export const HubConfigModal = ({ isOpen, onClose }: HubConfigModalProps) => {
                         {key === 'lazyLoading' && 'Lazy Loading (POS-M.3.4)'}
                       </Label>
                       <p className="text-xs text-muted-foreground mt-1">
-                        {key === 'nfcPayment' && 'Activate NFC Reader for IDIA-USD transactions'}
+                        {key === 'nfcPayment' && 'Activate NFC Reader for USDC transactions'}
                         {key === 'barcodeScanner' && 'Enable camera barcode scanner button'}
                         {key === 'dataCoop' && 'Background logging of anonymized BHI data'}
                         {key === 'offlineMode' && 'Cache app_manifest locally for offline sessions'}
