@@ -657,6 +657,7 @@ export type Database = {
           logo_url: string | null
           name: string
           phone: string | null
+          provisioning_code: string
           subscription_tier: string | null
           tax_id: string | null
           updated_at: string | null
@@ -674,6 +675,7 @@ export type Database = {
           logo_url?: string | null
           name: string
           phone?: string | null
+          provisioning_code?: string
           subscription_tier?: string | null
           tax_id?: string | null
           updated_at?: string | null
@@ -691,6 +693,7 @@ export type Database = {
           logo_url?: string | null
           name?: string
           phone?: string | null
+          provisioning_code?: string
           subscription_tier?: string | null
           tax_id?: string | null
           updated_at?: string | null
@@ -1483,6 +1486,44 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      device_provisioning_blueprints: {
+        Row: {
+          business_id: string
+          code: string
+          created_at: string
+          id: string
+          payload: Json
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          code: string
+          created_at?: string
+          id?: string
+          payload: Json
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          code?: string
+          created_at?: string
+          id?: string
+          payload?: Json
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "device_provisioning_blueprints_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       digiramp_testnet_migration: {
         Row: {
@@ -6474,6 +6515,7 @@ export type Database = {
         }
         Returns: number
       }
+      generate_business_provisioning_code: { Args: never; Returns: string }
       generate_pseudonym:
         | { Args: { input_id: string }; Returns: string }
         | { Args: { input_text: string }; Returns: string }

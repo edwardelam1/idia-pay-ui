@@ -8,13 +8,25 @@ export const useReconnectionSyncer = () => {
     const processOfflineQueue = () => {
       console.info("[BEGIN: ReconnectionSyncer.SyncProcess] Connectivity detected.");
 
-      const request = indexedDB.open("IDIA_PAY_EDGE_BUS", 1);
+      const probe = indexedDB.open("IDIA_PAY_EDGE_BUS");
+      probe.onerror = () => {
+        // No DB yet — nothing to sync. Silent no-op.
+      };
+      probe.onsuccess = () => {
+        const db = probe.result;
+        if (!db.objectStoreNames.contains("offline_events")) {
+          // Schema not yet provisioned by the publisher — nothing buffered.
+          db.close();
+          return;
+        }
 
-      request.onsuccess = async () => {
-        const db = request.result;
-        if (!db.objectStoreNames.contains("offline_events")) return;
-
-        const tx = db.transaction("offline_events", "readwrite");
+        let tx: IDBTransaction;
+        try {
+          tx = db.transaction("offline_events", "readwrite");
+        } catch {
+          db.close();
+          return;
+        }
         const store = tx.objectStore("offline_events");
         const getAllRequest = store.getAll();
 
@@ -26,13 +38,21 @@ export const useReconnectionSyncer = () => {
 
           for (const event of events) {
             console.info(`[BEGIN: EventSync.Push] Beacon: ${event.correlation_id}`);
-            const { error } = await supabase.from("financial_event_log").insert([{ ...event, status: "COMPILED" }]);
+            const { error } = await supabase
+              .from("financial_event_log" as any)
+              .insert([{ ...event, status: "COMPILED" }]);
 
             if (!error) {
-              db.transaction("offline_events", "readwrite").objectStore("offline_events").delete(event.correlation_id);
-              console.info(`[END: EventSync.Push] Anchored.`);
+              try {
+                db.transaction("offline_events", "readwrite")
+                  .objectStore("offline_events")
+                  .delete(event.correlation_id);
+                console.info(`[END: EventSync.Push] Anchored.`);
+              } catch (delErr) {
+                console.warn(`[WARN: EventSync.Delete] ${delErr}`);
+              }
             } else {
-              console.error(`[FAILURE: EventSync.Push] ${error.message}`);
+              console.warn(`[NON-CRITICAL: EventSync.Push] ${error.message}`);
               break;
             }
           }

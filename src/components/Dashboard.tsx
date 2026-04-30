@@ -54,29 +54,32 @@ export const Dashboard = ({ blueprint, onWipeDevice }: SovereignDashboardProps) 
   };
 
   // 4. Secure Terminal De-provisioning
-  const handleUncoupleTerminal = async () => {
+  // CRITICAL ORDERING: wipe + state transition FIRST (synchronous, must always
+  // succeed). Telemetry is fired-and-forgotten afterwards so a broken event
+  // ledger or offline buffer can never block the user from leaving.
+  const handleUncoupleTerminal = () => {
     console.info("[BEGIN: Dashboard.handleUncoupleTerminal] Initiating secure wipe sequence.");
-    // Best-effort provenance etch — must NOT block the wipe if telemetry fails.
-    try {
-      await emitEvent("SHIFT_ENDED", { terminalId: blueprint.provisioningCode }, `wipe-${Date.now()}`);
-      console.info("[STATUS: Dashboard.handleUncoupleTerminal] Provenance anchored.");
-    } catch (error) {
-      console.warn(
-        `[STATUS: Dashboard.handleUncoupleTerminal] Telemetry emit failed (non-blocking). Offset: EventEmit | Reason:`,
-        error,
-      );
-    }
 
     try {
       console.info("[STATUS: Dashboard.handleUncoupleTerminal] Executing wipe callback.");
       onWipeDevice();
-      console.info("[END: Dashboard.handleUncoupleTerminal] Handshake SUCCESS.");
+      console.info("[END: Dashboard.handleUncoupleTerminal] Handshake SUCCESS — returned to gate.");
     } catch (error) {
       console.error(
         `[END: Dashboard.handleUncoupleTerminal] CRITICAL FAILURE. Offset: WipeCallback | Reason:`,
         error,
       );
     }
+
+    // Best-effort provenance etch — fully detached. Cannot block the wipe.
+    void emitEvent("SHIFT_ENDED", { terminalId: blueprint.provisioningCode }, `wipe-${Date.now()}`).catch(
+      (error) => {
+        console.warn(
+          `[STATUS: Dashboard.handleUncoupleTerminal] Telemetry emit failed (non-blocking). Reason:`,
+          error,
+        );
+      },
+    );
   };
 
   return (
