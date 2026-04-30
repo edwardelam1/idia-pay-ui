@@ -204,7 +204,7 @@ export const AffiliateManagement = () => {
   const pendingCampaignsCount = campaigns.filter(c => c.status === 'pending').length;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3 md:space-y-4">
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-xl font-bold tracking-tight">Affiliate Management</h2>
@@ -215,7 +215,7 @@ export const AffiliateManagement = () => {
       </div>
 
       {/* Summary Cards */}
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-2 md:gap-3 md:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Active Campaigns</CardTitle>
@@ -269,7 +269,7 @@ export const AffiliateManagement = () => {
         </Card>
       </div>
 
-      <Tabs defaultValue="campaigns" className="space-y-4">
+      <Tabs defaultValue="campaigns" className="space-y-2 md:space-y-3">
         <TabsList>
           <TabsTrigger value="campaigns">Campaigns</TabsTrigger>
           <TabsTrigger value="creators">Creators</TabsTrigger>
@@ -277,7 +277,7 @@ export const AffiliateManagement = () => {
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="campaigns" className="space-y-4">
+        <TabsContent value="campaigns" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>Affiliate Campaigns</CardTitle>
@@ -286,7 +286,7 @@ export const AffiliateManagement = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <div className="space-y-2 md:space-y-3">
                 {campaigns.map((campaign) => (
                   <div key={campaign.id} className="flex items-center justify-between p-4 border rounded-lg">
                     <div className="space-y-1">
@@ -294,7 +294,7 @@ export const AffiliateManagement = () => {
                         {getStatusIcon(campaign.status)}
                         <h4 className="font-medium">{campaign.campaign_name}</h4>
                       </div>
-                      <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                      <div className="flex items-center space-x-2 md:space-x-3 text-sm text-muted-foreground">
                         <span>Type: {campaign.campaign_type}</span>
                         <span>Commission: {(campaign.commission_rate * 100).toFixed(1)}%</span>
                         <span>Budget: ${campaign.budget_allocation?.toFixed(2) || 'N/A'}</span>
@@ -330,7 +330,7 @@ export const AffiliateManagement = () => {
                 ))}
                 
                 {campaigns.length === 0 && (
-                  <div className="text-center py-8 text-muted-foreground">
+                  <div className="text-center py-3 md:py-5 text-muted-foreground">
                     No affiliate campaigns yet. Campaigns will appear here when creators submit them.
                   </div>
                 )}
@@ -339,7 +339,7 @@ export const AffiliateManagement = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="creators" className="space-y-4">
+        <TabsContent value="creators" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>Verified Creators</CardTitle>
@@ -348,7 +348,7 @@ export const AffiliateManagement = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-2 md:gap-3 md:grid-cols-2 lg:grid-cols-3">
                 {creators.map((creator) => (
                   <Card key={creator.id}>
                     <CardHeader className="pb-2">
@@ -397,7 +397,7 @@ export const AffiliateManagement = () => {
                 ))}
                 
                 {creators.length === 0 && (
-                  <div className="col-span-full text-center py-8 text-muted-foreground">
+                  <div className="col-span-full text-center py-3 md:py-5 text-muted-foreground">
                     No verified creators available at the moment.
                   </div>
                 )}
@@ -406,7 +406,7 @@ export const AffiliateManagement = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="transactions" className="space-y-4">
+        <TabsContent value="transactions" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>Recent Transactions</CardTitle>
@@ -437,7 +437,7 @@ export const AffiliateManagement = () => {
                 ))}
                 
                 {transactions.length === 0 && (
-                  <div className="text-center py-8 text-muted-foreground">
+                  <div className="text-center py-3 md:py-5 text-muted-foreground">
                     No transactions yet. Affiliate transactions will appear here.
                   </div>
                 )}
@@ -446,7 +446,7 @@ export const AffiliateManagement = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="analytics" className="space-y-4">
+        <TabsContent value="analytics" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>Campaign Performance</CardTitle>
@@ -455,7 +455,7 @@ export const AffiliateManagement = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-center py-8 text-muted-foreground">
+              <div className="text-center py-3 md:py-5 text-muted-foreground">
                 <TrendingUp className="mx-auto h-12 w-12 text-gray-400 mb-4" />
                 <h3 className="text-lg font-medium mb-2">Analytics Dashboard</h3>
                 <p className="mb-4">

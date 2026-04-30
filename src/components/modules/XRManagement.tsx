@@ -172,7 +172,7 @@ export const XRManagement = () => {
               Set up a new augmented reality experience for your menu items.
             </DialogDescription>
           </DialogHeader>
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-3">
             <div>
               <Label htmlFor="title">Experience Title</Label>
               <Input
@@ -219,7 +219,7 @@ export const XRManagement = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3 md:space-y-4">
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-xl font-bold tracking-tight">XR Management</h2>
@@ -232,7 +232,7 @@ export const XRManagement = () => {
 
       {/* Performance Overview Cards */}
       {campaignPerformance && (
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-2 md:gap-3 md:grid-cols-2 lg:grid-cols-5">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Total Interactions</CardTitle>
@@ -281,7 +281,7 @@ export const XRManagement = () => {
         </div>
       )}
 
-      <Tabs defaultValue="experiences" className="space-y-4">
+      <Tabs defaultValue="experiences" className="space-y-2 md:space-y-3">
         <TabsList>
           <TabsTrigger value="experiences">AR Experiences</TabsTrigger>
           <TabsTrigger value="content">Content Assets</TabsTrigger>
@@ -289,7 +289,7 @@ export const XRManagement = () => {
           <TabsTrigger value="analytics">Analytics</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="experiences" className="space-y-4">
+        <TabsContent value="experiences" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>AR Experiences</CardTitle>
@@ -298,7 +298,7 @@ export const XRManagement = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <div className="space-y-2 md:space-y-3">
                 {arExperiences.map((experience) => (
                   <div key={experience.id} className="flex items-center justify-between p-4 border rounded-lg">
                     <div className="space-y-1">
@@ -323,7 +323,7 @@ export const XRManagement = () => {
                   </div>
                 ))}
                 {arExperiences.length === 0 && (
-                  <div className="text-center py-8 text-muted-foreground">
+                  <div className="text-center py-3 md:py-5 text-muted-foreground">
                     No AR experiences created yet. Create your first experience to get started.
                   </div>
                 )}
@@ -332,7 +332,7 @@ export const XRManagement = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="content" className="space-y-4">
+        <TabsContent value="content" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>Content Assets</CardTitle>
@@ -341,7 +341,7 @@ export const XRManagement = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+              <div className="border-2 border-dashed border-gray-300 rounded-lg p-3 md:p-5 text-center">
                 <Upload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
                 <h3 className="text-lg font-medium mb-2">Upload AR Content</h3>
                 <p className="text-muted-foreground mb-4">
@@ -356,7 +356,7 @@ export const XRManagement = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="placement" className="space-y-4">
+        <TabsContent value="placement" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>AR Placement Zones</CardTitle>
@@ -365,7 +365,7 @@ export const XRManagement = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-center py-8">
+              <div className="text-center py-3 md:py-5">
                 <MapPin className="mx-auto h-12 w-12 text-gray-400 mb-4" />
                 <h3 className="text-lg font-medium mb-2">No Placement Zones Configured</h3>
                 <p className="text-muted-foreground mb-4">
@@ -380,7 +380,7 @@ export const XRManagement = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="analytics" className="space-y-4">
+        <TabsContent value="analytics" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>AR Analytics</CardTitle>
@@ -389,8 +389,8 @@ export const XRManagement = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                <div className="text-center py-8 text-muted-foreground">
+              <div className="space-y-2 md:space-y-3">
+                <div className="text-center py-3 md:py-5 text-muted-foreground">
                   Advanced AR analytics dashboard coming soon. Monitor conversion rates, 
                   engagement patterns, and revenue attribution from AR experiences.
                 </div>

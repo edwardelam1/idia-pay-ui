@@ -122,9 +122,9 @@ export const LocalInventory = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3 md:space-y-4">
       {/* Inventory Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Items</CardTitle>
@@ -170,7 +170,7 @@ export const LocalInventory = () => {
         </Card>
       </div>
 
-      <Tabs defaultValue="current" className="space-y-4">
+      <Tabs defaultValue="current" className="space-y-2 md:space-y-3">
         <TabsList>
           <TabsTrigger value="current">Current Stock</TabsTrigger>
           <TabsTrigger value="orders">Pending Orders</TabsTrigger>
@@ -275,7 +275,7 @@ export const LocalInventory = () => {
         </TabsContent>
 
         <TabsContent value="alerts">
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-3">
             <Card>
               <CardHeader>
                 <CardTitle className="text-destructive">Critical Stock Alerts</CardTitle>

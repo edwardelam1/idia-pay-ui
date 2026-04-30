@@ -54,11 +54,11 @@ export const SalesOverviewTab = ({ summary, dailySales, categoryBreakdown, loadi
 
     <div className="grid lg:grid-cols-2 gap-3" style={{ height: "280px" }}>
       <Card className="h-full">
-        <CardHeader className="p-3 pb-2">
+        <CardHeader className="p-2 md:p-3 pb-2">
           <CardTitle className="text-sm">Sales Trend</CardTitle>
           <CardDescription className="text-xs">Daily sales over selected period</CardDescription>
         </CardHeader>
-        <CardContent className="p-3 pt-0 h-48">
+        <CardContent className="p-2 md:p-3 pt-0 h-48">
           {dailySales.length > 0 ? (
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={dailySales}>
@@ -78,11 +78,11 @@ export const SalesOverviewTab = ({ summary, dailySales, categoryBreakdown, loadi
       </Card>
 
       <Card className="h-full">
-        <CardHeader className="p-3 pb-2">
+        <CardHeader className="p-2 md:p-3 pb-2">
           <CardTitle className="text-sm">Category Breakdown</CardTitle>
           <CardDescription className="text-xs">Sales by product category</CardDescription>
         </CardHeader>
-        <CardContent className="p-3 pt-0 overflow-y-auto" style={{ maxHeight: "220px" }}>
+        <CardContent className="p-2 md:p-3 pt-0 overflow-y-auto" style={{ maxHeight: "220px" }}>
           {categoryBreakdown.length > 0 ? (
             <div className="space-y-2">
               {categoryBreakdown.map((item, index) => (

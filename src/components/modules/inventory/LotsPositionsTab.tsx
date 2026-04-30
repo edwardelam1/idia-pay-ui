@@ -121,7 +121,7 @@ export const LotsPositionsTab = () => {
   };
 
   return (
-    <div className="flex flex-col h-full space-y-4">
+    <div className="flex flex-col h-full space-y-2 md:space-y-3">
       {/* State summary badges */}
       <div className="flex gap-2 flex-shrink-0">
         <Badge variant="default" className="text-xs">Available: {stateCount.Available}</Badge>
@@ -130,7 +130,7 @@ export const LotsPositionsTab = () => {
         <Badge variant="outline" className="text-xs">In-Transit: {stateCount['In-Transit']}</Badge>
       </div>
 
-      <div className="flex gap-4 flex-shrink-0">
+      <div className="flex gap-2 md:gap-3 flex-shrink-0">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input placeholder="Search lots, products, locations..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-10" />
@@ -151,11 +151,11 @@ export const LotsPositionsTab = () => {
 
       <div className="flex-1 overflow-y-auto">
         {Object.keys(grouped).length === 0 ? (
-          <div className="text-center py-8 text-muted-foreground text-sm">
+          <div className="text-center py-3 md:py-5 text-muted-foreground text-sm">
             No inventory positions found. Add inventory items with stock to see lot positions here.
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-3">
             {Object.entries(grouped).map(([productName, positions]) => (
               <div key={productName} className="border rounded-lg overflow-hidden">
                 <div className="bg-muted/50 px-4 py-2 font-medium text-sm flex items-center justify-between">

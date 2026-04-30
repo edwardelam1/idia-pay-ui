@@ -75,7 +75,7 @@ export const ProvisioningModal = ({ isOpen, onClose }: ProvisioningModalProps) =
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-6">
+        <div className="space-y-3 md:space-y-4">
           {/* Generate New Code */}
           <Card>
             <CardHeader className="pb-3">
@@ -87,8 +87,8 @@ export const ProvisioningModal = ({ isOpen, onClose }: ProvisioningModalProps) =
                 Create a new one-time code for device registration with sales agent attribution (DAT-M.6.1)
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <CardContent className="space-y-2 md:space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                 <div className="space-y-2">
                   <Label>Sales Agent ID (DAT-M.6.1)</Label>
                   <Input 
@@ -127,7 +127,7 @@ export const ProvisioningModal = ({ isOpen, onClose }: ProvisioningModalProps) =
 
           {/* Security Transmission Notice */}
           <Card className="border-primary/50 bg-primary/5">
-            <CardContent className="p-4 flex items-start gap-3">
+            <CardContent className="p-2 md:p-3 flex items-start gap-3">
               <Shield className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <p className="text-sm font-medium">Crazy Gatekeeper Security (AUT-M.2.4)</p>

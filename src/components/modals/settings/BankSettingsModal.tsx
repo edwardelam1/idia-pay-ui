@@ -216,7 +216,7 @@ export const BankSettingsModal = ({ isOpen, onClose }: BankSettingsModalProps) =
     return (
       <Dialog open={isOpen} onOpenChange={onClose}>
         <DialogContent className="max-w-lg">
-          <div className="flex items-center justify-center p-8">
+          <div className="flex items-center justify-center p-3 md:p-5">
             <Loader2 className="w-5 h-5 animate-spin mr-2" />
             <span className="text-sm">Loading...</span>
           </div>
@@ -421,7 +421,7 @@ export const BankSettingsModal = ({ isOpen, onClose }: BankSettingsModalProps) =
           {/* History Tab */}
           <TabsContent value="history" className="mt-3">
             {history.length === 0 ? (
-              <div className="text-center py-8 text-muted-foreground">
+              <div className="text-center py-3 md:py-5 text-muted-foreground">
                 <History className="w-6 h-6 mx-auto mb-2 opacity-50" />
                 <p className="text-xs">No history yet</p>
               </div>

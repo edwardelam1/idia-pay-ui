@@ -144,7 +144,7 @@ export const MarketIntelligence = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3 md:space-y-4">
       <div className="flex justify-between items-center">
         <div>
           <h2 className="text-3xl font-bold tracking-tight">Market Intelligence</h2>
@@ -166,7 +166,7 @@ export const MarketIntelligence = () => {
         </div>
       </div>
 
-      <Tabs defaultValue="overview" className="space-y-4">
+      <Tabs defaultValue="overview" className="space-y-2 md:space-y-3">
         <TabsList>
           <TabsTrigger value="overview">Performance Overview</TabsTrigger>
           <TabsTrigger value="benchmarks">Industry Benchmarks</TabsTrigger>
@@ -174,8 +174,8 @@ export const MarketIntelligence = () => {
           <TabsTrigger value="insights">Market Insights</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="overview" className="space-y-4">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <TabsContent value="overview" className="space-y-2 md:space-y-3">
+          <div className="grid gap-2 md:gap-3 md:grid-cols-2 lg:grid-cols-4">
             {competitiveAnalysis.slice(0, 8).map((analysis) => (
               <MetricCard key={analysis.id} analysis={analysis} />
             ))}
@@ -190,7 +190,7 @@ export const MarketIntelligence = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-center py-8">
+                <div className="text-center py-3 md:py-5">
                   <BarChart3 className="mx-auto h-12 w-12 text-gray-400 mb-4" />
                   <h3 className="text-lg font-medium mb-2">No Analysis Data Available</h3>
                   <p className="text-muted-foreground mb-4">
@@ -203,7 +203,7 @@ export const MarketIntelligence = () => {
           )}
         </TabsContent>
 
-        <TabsContent value="benchmarks" className="space-y-4">
+        <TabsContent value="benchmarks" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>Industry Benchmarks</CardTitle>
@@ -212,9 +212,9 @@ export const MarketIntelligence = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
+              <div className="space-y-2 md:space-y-3">
                 {benchmarks.map((benchmark) => (
-                  <div key={benchmark.id} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 p-4 border rounded-lg">
+                  <div key={benchmark.id} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-3 p-4 border rounded-lg">
                     <div className="col-span-2">
                       <h4 className="font-medium capitalize">{benchmark.metric_name.replace('_', ' ')}</h4>
                       <p className="text-sm text-muted-foreground">{benchmark.industry_category}</p>
@@ -246,7 +246,7 @@ export const MarketIntelligence = () => {
                   </div>
                 ))}
                 {benchmarks.length === 0 && (
-                  <div className="text-center py-8 text-muted-foreground">
+                  <div className="text-center py-3 md:py-5 text-muted-foreground">
                     No benchmark data available for the selected region.
                   </div>
                 )}
@@ -255,7 +255,7 @@ export const MarketIntelligence = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="competitive" className="space-y-4">
+        <TabsContent value="competitive" className="space-y-2 md:space-y-3">
           <Card>
             <CardHeader>
               <CardTitle>Competitive Positioning</CardTitle>
@@ -264,7 +264,7 @@ export const MarketIntelligence = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-6">
+              <div className="space-y-3 md:space-y-4">
                 {competitiveAnalysis.map((analysis) => {
                   const indicator = getPerformanceIndicator(analysis.percentile_rank);
                   const Icon = indicator.icon;
@@ -288,7 +288,7 @@ export const MarketIntelligence = () => {
                         </div>
                       </div>
                       
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 text-sm">
                         <div>
                           <span className="text-muted-foreground">Your Value: </span>
                           <span className="font-medium">
@@ -336,8 +336,8 @@ export const MarketIntelligence = () => {
           </Card>
         </TabsContent>
 
-        <TabsContent value="insights" className="space-y-4">
-          <div className="grid gap-4 md:grid-cols-2">
+        <TabsContent value="insights" className="space-y-2 md:space-y-3">
+          <div className="grid gap-2 md:gap-3 md:grid-cols-2">
             <Card>
               <CardHeader>
                 <CardTitle>Market Trends</CardTitle>
@@ -346,7 +346,7 @@ export const MarketIntelligence = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
+                <div className="space-y-2 md:space-y-3">
                   <div className="flex items-start space-x-3">
                     <TrendingUp className="h-5 w-5 text-green-500 mt-0.5" />
                     <div>
@@ -401,7 +401,7 @@ export const MarketIntelligence = () => {
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-6">
+                  <div className="text-center py-3 md:py-4">
                     <BarChart3 className="mx-auto h-8 w-8 text-gray-400 mb-2" />
                     <h4 className="font-medium mb-1">No Active Subscriptions</h4>
                     <p className="text-sm text-muted-foreground mb-3">

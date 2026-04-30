@@ -370,7 +370,7 @@ export const POSModule = () => {
               placeholder="Search menu..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-8 h-8 text-sm"
+              className="pl-3 md:pl-5 h-8 text-sm"
             />
           </div>
 
@@ -539,7 +539,7 @@ export const POSModule = () => {
             </DialogDescription>
           </DialogHeader>
           
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-3">
             {/* Customer Info */}
             <div className="space-y-2">
               <h4 className="font-medium">Customer Information (Optional)</h4>
@@ -617,8 +617,8 @@ export const POSModule = () => {
             </DialogDescription>
           </DialogHeader>
           
-          <div className="space-y-4 text-center">
-            <div className="p-8 border-2 border-dashed border-primary/30 rounded-lg">
+          <div className="space-y-2 md:space-y-3 text-center">
+            <div className="p-3 md:p-5 border-2 border-dashed border-primary/30 rounded-lg">
               <Nfc className="w-16 h-16 mx-auto text-primary mb-4 animate-pulse" />
               <p className="text-lg font-medium mb-2">Tap Device to Pay</p>
               <p className="text-sm text-muted-foreground">
@@ -666,7 +666,7 @@ export const POSModule = () => {
             </DialogDescription>
           </DialogHeader>
           
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-3">
             <div className="space-y-2">
               <Input
                 placeholder="Gift card code"

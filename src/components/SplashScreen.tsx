@@ -55,7 +55,7 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
 
   return (
     <div className="min-h-[100dvh] bg-gradient-to-br from-primary/5 via-background to-secondary/5 flex items-center justify-center overflow-auto">
-      <div className="text-center space-y-4 p-4">
+      <div className="text-center space-y-2 md:space-y-3 p-4">
         {/* Logo */}
         <div className="space-y-2">
           <div className="w-16 h-16 mx-auto mb-2 flex items-center justify-center bg-white rounded-xl shadow-lg">

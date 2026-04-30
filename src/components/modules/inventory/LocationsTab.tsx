@@ -87,7 +87,7 @@ export const LocationsTab = () => {
   const { toast } = useToast();
 
   return (
-    <div className="flex flex-col h-full space-y-4">
+    <div className="flex flex-col h-full space-y-2 md:space-y-3">
       <div className="flex justify-between items-center flex-shrink-0">
         <div className="text-sm text-muted-foreground">
           Warehouse location hierarchy — expand nodes to drill down
@@ -125,12 +125,12 @@ const AddLocationForm = ({ onCancel, onSubmit }: { onCancel: () => void; onSubmi
   });
 
   return (
-    <form onSubmit={(e) => { e.preventDefault(); onSubmit(formData); }} className="space-y-4">
+    <form onSubmit={(e) => { e.preventDefault(); onSubmit(formData); }} className="space-y-2 md:space-y-3">
       <div className="space-y-2">
         <Label>Name / Code</Label>
         <Input value={formData.name_code} onChange={(e) => setFormData(p => ({ ...p, name_code: e.target.value }))} placeholder="e.g. A1-R03-B01" required />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
         <div className="space-y-2">
           <Label>Type</Label>
           <Select value={formData.type} onValueChange={(v: any) => setFormData(p => ({ ...p, type: v }))}>

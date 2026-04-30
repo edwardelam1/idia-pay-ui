@@ -56,11 +56,11 @@ export const InventoryProcurementTab = ({ inventory, procurement, loading }: Pro
 
       <div className="grid lg:grid-cols-2 gap-3">
         <Card>
-          <CardHeader className="p-3 pb-2">
+          <CardHeader className="p-2 md:p-3 pb-2">
             <CardTitle className="text-sm">Low Stock Items</CardTitle>
             <CardDescription className="text-xs">Items below par level requiring reorder</CardDescription>
           </CardHeader>
-          <CardContent className="p-3 pt-0 max-h-64 overflow-y-auto">
+          <CardContent className="p-2 md:p-3 pt-0 max-h-64 overflow-y-auto">
             {inventory.lowStockItems.length > 0 ? (
               <Table>
                 <TableHeader>
@@ -91,11 +91,11 @@ export const InventoryProcurementTab = ({ inventory, procurement, loading }: Pro
         </Card>
 
         <Card>
-          <CardHeader className="p-3 pb-2">
+          <CardHeader className="p-2 md:p-3 pb-2">
             <CardTitle className="text-sm">Procurement Overview</CardTitle>
             <CardDescription className="text-xs">Purchase order and supplier metrics</CardDescription>
           </CardHeader>
-          <CardContent className="p-3 pt-0">
+          <CardContent className="p-2 md:p-3 pt-0">
             <div className="space-y-3">
               <div className="flex justify-between p-2 bg-muted/50 rounded">
                 <span className="text-sm">Total Items Tracked</span>

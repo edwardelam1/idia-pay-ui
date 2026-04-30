@@ -102,7 +102,7 @@ export const ScheduleView = ({ members, schedules, timeEntries, businessHours, o
   }, [displayMembers, filteredSchedules, currentWeekStart]);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-2 md:space-y-3">
       {/* Controls */}
       <div className="flex items-center justify-between flex-wrap gap-2">
         <div className="flex items-center gap-2">
@@ -255,7 +255,7 @@ export const ScheduleView = ({ members, schedules, timeEntries, businessHours, o
             <DialogTitle>Add Shift</DialogTitle>
             <DialogDescription>Schedule a shift for a team member</DialogDescription>
           </DialogHeader>
-          <div className="space-y-4">
+          <div className="space-y-2 md:space-y-3">
             <div className="space-y-2">
               <Label>Team Member</Label>
               <Select value={shiftForm.team_member_id} onValueChange={v => setShiftForm(p => ({ ...p, team_member_id: v }))}>
@@ -269,7 +269,7 @@ export const ScheduleView = ({ members, schedules, timeEntries, businessHours, o
               <Label>Date</Label>
               <Input type="date" value={shiftForm.schedule_date} onChange={e => setShiftForm(p => ({ ...p, schedule_date: e.target.value }))} />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
               <div className="space-y-2">
                 <Label>Start Time</Label>
                 <Input type="time" value={shiftForm.start_time} onChange={e => setShiftForm(p => ({ ...p, start_time: e.target.value }))} />
@@ -279,7 +279,7 @@ export const ScheduleView = ({ members, schedules, timeEntries, businessHours, o
                 <Input type="time" value={shiftForm.end_time} onChange={e => setShiftForm(p => ({ ...p, end_time: e.target.value }))} />
               </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
               <div className="space-y-2">
                 <Label>Break (minutes)</Label>
                 <Input type="number" value={shiftForm.break_minutes} onChange={e => setShiftForm(p => ({ ...p, break_minutes: e.target.value }))} />

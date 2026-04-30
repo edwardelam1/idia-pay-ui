@@ -108,8 +108,8 @@ export const TransactionLedgerTab = () => {
   };
 
   return (
-    <div className="flex flex-col h-full space-y-4">
-      <div className="flex gap-4 flex-shrink-0">
+    <div className="flex flex-col h-full space-y-2 md:space-y-3">
+      <div className="flex gap-2 md:gap-3 flex-shrink-0">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input placeholder="Search transactions..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-10" />
@@ -169,7 +169,7 @@ export const TransactionLedgerTab = () => {
               <tbody>
                 {filtered.length === 0 ? (
                   <tr>
-                    <td colSpan={7} className="p-8 text-center text-muted-foreground text-sm">
+                    <td colSpan={7} className="p-3 md:p-5 text-center text-muted-foreground text-sm">
                       No transactions recorded yet. Use "Record" to log inventory movements.
                     </td>
                   </tr>
@@ -223,7 +223,7 @@ export const TransactionLedgerTab = () => {
               <tbody>
                 {filteredGL.length === 0 ? (
                   <tr>
-                    <td colSpan={6} className="p-8 text-center text-muted-foreground text-sm">
+                    <td colSpan={6} className="p-3 md:p-5 text-center text-muted-foreground text-sm">
                       No journal entries yet. Transactions will auto-generate GL entries.
                     </td>
                   </tr>
@@ -326,8 +326,8 @@ const RecordTransactionForm = ({ onCancel, onSubmit }: { onCancel: () => void; o
   const vis = FIELD_VISIBILITY[formData.transaction_type] ?? { from: true, to: true, reference: true };
 
   return (
-    <form onSubmit={(e) => { e.preventDefault(); onSubmit(formData); }} className="space-y-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <form onSubmit={(e) => { e.preventDefault(); onSubmit(formData); }} className="space-y-2 md:space-y-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
         <div className="space-y-2">
           <Label>Transaction Type</Label>
           <Select value={formData.transaction_type} onValueChange={(v) => setFormData(p => ({ ...p, transaction_type: v }))}>
@@ -371,7 +371,7 @@ const RecordTransactionForm = ({ onCancel, onSubmit }: { onCancel: () => void; o
       )}
 
       {(vis.from || vis.to) && (
-        <div className={`grid gap-4 ${vis.from && vis.to ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+        <div className={`grid gap-2 md:gap-3 ${vis.from && vis.to ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
           {vis.from && (
             <div className="space-y-2">
               <Label>From Location</Label>
@@ -405,7 +405,7 @@ const RecordTransactionForm = ({ onCancel, onSubmit }: { onCancel: () => void; o
         </div>
       )}
 
-      <div className={`grid gap-4 ${vis.reference ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2'}`}>
+      <div className={`grid gap-2 md:gap-3 ${vis.reference ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3' : 'grid-cols-1 sm:grid-cols-2'}`}>
         <div className="space-y-2">
           <Label>Quantity {formData.unit_of_measure && `(${formData.unit_of_measure})`}</Label>
           <Input type="number" value={formData.quantity} onChange={(e) => setFormData(p => ({ ...p, quantity: parseFloat(e.target.value) || 0 }))} required />

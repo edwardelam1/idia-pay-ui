@@ -109,9 +109,9 @@ export const ProductsTab = ({ items, onItemClick, onEditItem, onDeleteItem, onMa
   };
 
   return (
-    <div className="flex flex-col h-full space-y-4">
+    <div className="flex flex-col h-full space-y-2 md:space-y-3">
       {/* Search and Filters */}
-      <div className="flex gap-4 flex-shrink-0 flex-wrap">
+      <div className="flex gap-2 md:gap-3 flex-shrink-0 flex-wrap">
         <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
@@ -178,7 +178,7 @@ export const ProductsTab = ({ items, onItemClick, onEditItem, onDeleteItem, onMa
                 className={`cursor-pointer hover:shadow-lg transition-all duration-200 hover:scale-105 relative group ${selectedIds.has(item.id) ? 'ring-2 ring-primary' : ''}`}
                 onClick={() => selectionMode ? toggleSelect(item.id) : onItemClick(item)}
               >
-                <CardContent className="p-3 flex flex-col items-center text-center space-y-2">
+                <CardContent className="p-2 md:p-3 flex flex-col items-center text-center space-y-2">
                   {/* Selection checkbox */}
                   {selectionMode && (
                     <div className="absolute top-1 left-1 z-10">
@@ -249,7 +249,7 @@ export const ProductsTab = ({ items, onItemClick, onEditItem, onDeleteItem, onMa
               </Card>
             ))}
             {filteredItems.length === 0 && (
-              <div className="col-span-full p-8 text-center text-muted-foreground">No items found.</div>
+              <div className="col-span-full p-3 md:p-5 text-center text-muted-foreground">No items found.</div>
             )}
           </div>
         </ScrollArea>

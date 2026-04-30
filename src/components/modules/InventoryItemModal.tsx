@@ -190,7 +190,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-2xl max-h-[90vh] p-0 gap-0">
-        <DialogHeader className="px-6 pt-6 pb-2">
+        <DialogHeader className="px-3 md:px-4 pt-3 md:pt-4 pb-2">
           <DialogTitle className="flex items-center space-x-3">
             {getCategoryIcon(category)}
             <div>
@@ -209,7 +209,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
           <DialogDescription>Edit item details — all fields persist to the item profile</DialogDescription>
         </DialogHeader>
 
-        <ScrollArea className="max-h-[60vh] px-6">
+        <ScrollArea className="max-h-[60vh] px-3 md:px-4">
           <div className="space-y-5 pb-4">
             {/* Stock Level Progress */}
             <div>
@@ -396,7 +396,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
             </div>
 
             {/* Row 7: Tracking toggles — matches Add form */}
-            <div className="flex items-center gap-6 pt-1">
+            <div className="flex items-center gap-3 md:gap-4 pt-1">
               <div className="flex items-center gap-2">
                 <Switch checked={requiresSerialization} onCheckedChange={setRequiresSerialization} />
                 <Label>Serial Tracking</Label>
@@ -409,7 +409,7 @@ export const InventoryItemModal = ({ item, isOpen, onClose, onSave, uomUnits = [
           </div>
         </ScrollArea>
 
-        <DialogFooter className="px-6 py-4 border-t gap-2">
+        <DialogFooter className="px-3 md:px-4 py-4 border-t gap-2">
           {currentStock <= reorderPoint && (
             <Button variant="outline" onClick={handleQuickOrder} size="sm">
               <ShoppingCart className="w-4 h-4 mr-2" />

@@ -497,9 +497,9 @@ export const InventoryManagement = () => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-hidden p-4 flex flex-col space-y-4">
+      <div className="flex-1 overflow-hidden p-4 flex flex-col space-y-2 md:space-y-3">
         {/* Stats Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 flex-shrink-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3 flex-shrink-0">
           <Card className="p-3">
             <div className="text-center">
               <div className="text-2xl font-bold">{inventoryItems.length}</div>
@@ -597,7 +597,7 @@ export const InventoryManagement = () => {
           {/* File Upload Area */}
           {!importFile ? (
             <div
-              className="border-2 border-dashed rounded-lg p-8 text-center cursor-pointer hover:border-primary transition-colors"
+              className="border-2 border-dashed rounded-lg p-3 md:p-5 text-center cursor-pointer hover:border-primary transition-colors"
               onClick={() => fileInputRef.current?.click()}
               onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); }}
               onDrop={(e) => {
@@ -622,7 +622,7 @@ export const InventoryManagement = () => {
               />
             </div>
           ) : (
-            <div className="space-y-4">
+            <div className="space-y-2 md:space-y-3">
               {/* Selected File */}
               <div className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                 <FileText className="w-5 h-5 text-primary" />
@@ -758,7 +758,7 @@ const AddInventoryItemForm = ({ onCancel, onSubmit, uomUnits, suppliers }: AddIn
         <DialogTitle>Add Inventory Item</DialogTitle>
         <DialogDescription>Enterprise inventory catalog — all fields persist to the item profile</DialogDescription>
       </DialogHeader>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
         {/* Row 1: Name, SKU, GTIN */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           <div className="space-y-1.5">
@@ -896,7 +896,7 @@ const AddInventoryItemForm = ({ onCancel, onSubmit, uomUnits, suppliers }: AddIn
         </div>
 
         {/* Row 6: Tracking toggles */}
-        <div className="flex items-center gap-6 pt-1">
+        <div className="flex items-center gap-3 md:gap-4 pt-1">
           <div className="flex items-center gap-2">
             <Switch checked={formData.requires_serialization} onCheckedChange={(v) => update('requires_serialization', v)} />
             <Label>Serial Tracking</Label>
@@ -943,7 +943,7 @@ const RestockExistingItemForm = ({ existingItems, onCancel, onSubmit, uomUnits, 
         <DialogTitle>Restock Existing Item</DialogTitle>
         <DialogDescription>Add stock to an existing inventory item</DialogDescription>
       </DialogHeader>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-2 md:space-y-3">
         {/* Row 1: Item Name (dropdown) */}
         <div className="space-y-1.5">
           <Label>Item Name *</Label>

@@ -95,7 +95,7 @@ export const ManagerDashboard = ({ businessHealthIndex }: ManagerDashboardProps)
                   {liveStats.inventoryAlerts} inventory alerts
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-2 md:space-y-3">
                 <div className="flex items-center space-x-3">
                   <CheckCircle className="w-5 h-5 text-success" />
                   <div className="flex-1">
@@ -127,7 +127,7 @@ export const ManagerDashboard = ({ businessHealthIndex }: ManagerDashboardProps)
                   Items requiring attention
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-2 md:space-y-3">
                 <div className="p-3 bg-warning/10 border border-warning/20 rounded-lg">
                   <p className="text-sm font-medium">Low Stock Alert</p>
                   <p className="text-xs text-muted-foreground">
@@ -159,7 +159,7 @@ export const ManagerDashboard = ({ businessHealthIndex }: ManagerDashboardProps)
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
                 <Button variant="outline" className="h-20 flex flex-col">
                   <Clock className="w-6 h-6 mb-2" />
                   <span className="text-sm">Approve Timesheets</span>

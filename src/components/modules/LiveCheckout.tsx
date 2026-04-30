@@ -187,7 +187,7 @@ export const LiveCheckout = ({ onClose }: LiveCheckoutProps) => {
 
   return (
     <div className="min-h-[100dvh] bg-background overflow-auto">
-      <div className="container max-w-6xl mx-auto p-4 space-y-4">
+      <div className="container max-w-6xl mx-auto p-4 space-y-2 md:space-y-3">
         {/* Header */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -209,7 +209,7 @@ export const LiveCheckout = ({ onClose }: LiveCheckoutProps) => {
         {/* NFC Ready Overlay */}
         {showNFCReady && selectedOrder && (
           <Card className="border-primary bg-primary/5 animate-pulse">
-            <CardContent className="pt-6 text-center">
+            <CardContent className="pt-3 md:pt-4 text-center">
               <div className="mb-4">
                 <Smartphone className="h-16 w-16 mx-auto text-primary animate-bounce" />
               </div>
@@ -230,8 +230,8 @@ export const LiveCheckout = ({ onClose }: LiveCheckoutProps) => {
           <h2 className="text-lg font-semibold">Active Orders</h2>
           {pendingOrders.length === 0 ? (
             <Card>
-              <CardContent className="pt-6">
-                <p className="text-center text-muted-foreground py-8">
+              <CardContent className="pt-3 md:pt-4">
+                <p className="text-center text-muted-foreground py-3 md:py-5">
                   No active orders. Waiting for IDIA Life customers...
                 </p>
               </CardContent>
@@ -258,7 +258,7 @@ export const LiveCheckout = ({ onClose }: LiveCheckoutProps) => {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="space-y-2 md:space-y-3">
                   {/* Customer Info */}
                   <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
                     <User className="h-5 w-5 text-primary mt-0.5" />

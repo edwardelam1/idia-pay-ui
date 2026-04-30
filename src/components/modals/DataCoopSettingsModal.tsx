@@ -162,7 +162,7 @@ export const DataCoopSettingsModal = ({ isOpen, onClose }: DataCoopSettingsModal
     return (
       <Dialog open={isOpen} onOpenChange={onClose}>
         <DialogContent className="max-w-2xl">
-          <div className="flex items-center justify-center p-8">
+          <div className="flex items-center justify-center p-3 md:p-5">
             <Loader2 className="w-6 h-6 animate-spin mr-2" />
             <span>Loading...</span>
           </div>
@@ -186,7 +186,7 @@ export const DataCoopSettingsModal = ({ isOpen, onClose }: DataCoopSettingsModal
 
         {/* Compact Earnings Summary */}
         <div className="flex items-center justify-between rounded-lg border p-3 bg-muted/30">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-3">
             <div className="flex items-center gap-1">
               <DollarSign className="w-3 h-3 text-success" />
               <span className="text-sm font-bold text-success">${monthlyEarnings.toFixed(2)}</span>

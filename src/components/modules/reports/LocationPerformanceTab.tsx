@@ -52,11 +52,11 @@ export const LocationPerformanceTab = ({ locationPerformance, locationNames, loa
       </div>
 
       <Card>
-        <CardHeader className="p-3 pb-2">
+        <CardHeader className="p-2 md:p-3 pb-2">
           <CardTitle className="text-sm">Location Comparison</CardTitle>
           <CardDescription className="text-xs">Side-by-side KPI comparison</CardDescription>
         </CardHeader>
-        <CardContent className="p-3 pt-0">
+        <CardContent className="p-2 md:p-3 pt-0">
           <Table>
             <TableHeader>
               <TableRow>

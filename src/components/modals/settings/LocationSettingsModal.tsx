@@ -143,7 +143,7 @@ export const LocationSettingsModal = ({ isOpen, onClose }: LocationSettingsModal
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4">
+        <div className="space-y-2 md:space-y-3">
           <div className="flex justify-between items-center">
             <h3 className="text-lg font-semibold">Business Locations</h3>
             <Button onClick={addLocation} size="sm">
@@ -153,9 +153,9 @@ export const LocationSettingsModal = ({ isOpen, onClose }: LocationSettingsModal
           </div>
 
           {loading ? (
-            <div className="p-8 text-center text-muted-foreground">Loading locations...</div>
+            <div className="p-3 md:p-5 text-center text-muted-foreground">Loading locations...</div>
           ) : locations.length === 0 ? (
-            <div className="p-8 text-center text-muted-foreground">No locations yet. Add one to get started.</div>
+            <div className="p-3 md:p-5 text-center text-muted-foreground">No locations yet. Add one to get started.</div>
           ) : locations.map((location) => (
             <Card key={location.id}>
               <CardHeader className="pb-3">
@@ -178,8 +178,8 @@ export const LocationSettingsModal = ({ isOpen, onClose }: LocationSettingsModal
                   </div>
                 </div>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <CardContent className="space-y-2 md:space-y-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
                   <div>
                     <Label>Location Name</Label>
                     <Input
@@ -205,7 +205,7 @@ export const LocationSettingsModal = ({ isOpen, onClose }: LocationSettingsModal
                     placeholder="Suite, Unit, Floor (optional)"
                   />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
                   <div>
                     <Label>City</Label>
                     <Input

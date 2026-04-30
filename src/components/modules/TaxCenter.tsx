@@ -113,10 +113,10 @@ NOTES
       <div className="flex-1 overflow-hidden p-3 flex space-x-3">
         <div className="flex-1 space-y-3">
           <Card>
-            <CardHeader className="p-3">
+            <CardHeader className="p-2 md:p-3">
               <CardTitle className="flex items-center text-sm"><FileText className="w-4 h-4 mr-2" />Financial Reports</CardTitle>
             </CardHeader>
-            <CardContent className="p-3 pt-0">
+            <CardContent className="p-2 md:p-3 pt-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <Button variant="outline" className="h-12 flex flex-col items-center justify-center text-xs" onClick={() => handleGenerateReport("profit_loss")} disabled={isGenerating}>
                   <Calculator className="w-4 h-4 mb-1" /><span>P&L Statement</span>
@@ -135,10 +135,10 @@ NOTES
           </Card>
 
           <Card>
-            <CardHeader className="p-3">
+            <CardHeader className="p-2 md:p-3">
               <CardTitle className="text-sm">Tax Summary — {selectedPeriod.replace(/_/g, " ").toUpperCase()}</CardTitle>
             </CardHeader>
-            <CardContent className="p-3 pt-0">
+            <CardContent className="p-2 md:p-3 pt-0">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
                 <div className="text-center p-2 bg-muted rounded">
                   <div className="text-lg font-bold text-primary">${summary.totalTax.toFixed(2)}</div>
@@ -164,10 +164,10 @@ NOTES
 
         <div className="w-64 space-y-3">
           <Card>
-            <CardHeader className="p-3">
+            <CardHeader className="p-2 md:p-3">
               <CardTitle className="flex items-center text-sm"><AlertTriangle className="w-4 h-4 mr-2" />Compliance</CardTitle>
             </CardHeader>
-            <CardContent className="p-3 pt-0">
+            <CardContent className="p-2 md:p-3 pt-0">
               <div className="space-y-2">
                 <div className="flex items-center justify-between p-2 bg-success/10 rounded border border-success/20">
                   <div>
@@ -195,8 +195,8 @@ NOTES
           </Card>
 
           <Card>
-            <CardHeader className="p-3"><CardTitle className="text-sm">Quick Actions</CardTitle></CardHeader>
-            <CardContent className="p-3 pt-0">
+            <CardHeader className="p-2 md:p-3"><CardTitle className="text-sm">Quick Actions</CardTitle></CardHeader>
+            <CardContent className="p-2 md:p-3 pt-0">
               <div className="space-y-1">
                 <Button variant="outline" className="w-full justify-start h-8 text-xs"><Calculator className="w-3 h-3 mr-2" />Tax Calculator</Button>
                 <Button variant="outline" className="w-full justify-start h-8 text-xs"><FileText className="w-3 h-3 mr-2" />Tax Calendar</Button>
