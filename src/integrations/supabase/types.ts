@@ -816,6 +816,30 @@ export type Database = {
         }
         Relationships: []
       }
+      connection_ratings: {
+        Row: {
+          created_at: string
+          id: string
+          ratee_id: string
+          rater_id: string
+          stars: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          ratee_id: string
+          rater_id: string
+          stars: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          ratee_id?: string
+          rater_id?: string
+          stars?: number
+        }
+        Relationships: []
+      }
       creator_profiles: {
         Row: {
           created_at: string | null
@@ -3982,6 +4006,7 @@ export type Database = {
           available_credit_line: number | null
           avatar_url: string | null
           bio: string | null
+          compliance_rail: string | null
           created_at: string | null
           document_type: string | null
           ein: string | null
@@ -4019,6 +4044,7 @@ export type Database = {
           available_credit_line?: number | null
           avatar_url?: string | null
           bio?: string | null
+          compliance_rail?: string | null
           created_at?: string | null
           document_type?: string | null
           ein?: string | null
@@ -4056,6 +4082,7 @@ export type Database = {
           available_credit_line?: number | null
           avatar_url?: string | null
           bio?: string | null
+          compliance_rail?: string | null
           created_at?: string | null
           document_type?: string | null
           ein?: string | null
@@ -5391,6 +5418,27 @@ export type Database = {
         }
         Relationships: []
       }
+      system_settings: {
+        Row: {
+          description: string | null
+          key: string
+          updated_at: string | null
+          value: string
+        }
+        Insert: {
+          description?: string | null
+          key: string
+          updated_at?: string | null
+          value: string
+        }
+        Update: {
+          description?: string | null
+          key?: string
+          updated_at?: string | null
+          value?: string
+        }
+        Relationships: []
+      }
       tax_rates: {
         Row: {
           business_id: string
@@ -5585,6 +5633,27 @@ export type Database = {
           },
         ]
       }
+      trust_score_history: {
+        Row: {
+          id: string
+          recorded_at: string
+          score: number
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          recorded_at?: string
+          score: number
+          user_id: string
+        }
+        Update: {
+          id?: string
+          recorded_at?: string
+          score?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
       universal_data_bundles: {
         Row: {
           bundle_category: string
@@ -5670,6 +5739,51 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      usdc_onchain_events: {
+        Row: {
+          amount_micro: number
+          block_number: number | null
+          direction: string
+          from_address: string
+          id: string
+          log_index: number
+          raw_payload: Json | null
+          received_at: string
+          source: string
+          to_address: string
+          tx_hash: string
+          wallet_user_id: string | null
+        }
+        Insert: {
+          amount_micro: number
+          block_number?: number | null
+          direction: string
+          from_address: string
+          id?: string
+          log_index: number
+          raw_payload?: Json | null
+          received_at?: string
+          source?: string
+          to_address: string
+          tx_hash: string
+          wallet_user_id?: string | null
+        }
+        Update: {
+          amount_micro?: number
+          block_number?: number | null
+          direction?: string
+          from_address?: string
+          id?: string
+          log_index?: number
+          raw_payload?: Json | null
+          received_at?: string
+          source?: string
+          to_address?: string
+          tx_hash?: string
+          wallet_user_id?: string | null
+        }
+        Relationships: []
       }
       user_aca_records: {
         Row: {
@@ -6049,13 +6163,15 @@ export type Database = {
           governance_tokens: number | null
           hub_cash_balance: number | null
           id: string
-          idia_beta_balance: number | null
           idia_token_balance: number | null
           idia_usd_balance: number | null
           life_cash_balance: number | null
           platform_guid: string | null
+          stablecoin_balance: number | null
           total_earned: number | null
           updated_at: string | null
+          usdc_last_block: number | null
+          usdc_last_synced_at: string | null
           user_id: string
           wallet_address: string
         }
@@ -6066,13 +6182,15 @@ export type Database = {
           governance_tokens?: number | null
           hub_cash_balance?: number | null
           id?: string
-          idia_beta_balance?: number | null
           idia_token_balance?: number | null
           idia_usd_balance?: number | null
           life_cash_balance?: number | null
           platform_guid?: string | null
+          stablecoin_balance?: number | null
           total_earned?: number | null
           updated_at?: string | null
+          usdc_last_block?: number | null
+          usdc_last_synced_at?: string | null
           user_id: string
           wallet_address: string
         }
@@ -6083,13 +6201,15 @@ export type Database = {
           governance_tokens?: number | null
           hub_cash_balance?: number | null
           id?: string
-          idia_beta_balance?: number | null
           idia_token_balance?: number | null
           idia_usd_balance?: number | null
           life_cash_balance?: number | null
           platform_guid?: string | null
+          stablecoin_balance?: number | null
           total_earned?: number | null
           updated_at?: string | null
+          usdc_last_block?: number | null
+          usdc_last_synced_at?: string | null
           user_id?: string
           wallet_address?: string
         }
@@ -6293,6 +6413,14 @@ export type Database = {
         Args: { lat: number; lng: number }
         Returns: string
       }
+      apply_usdc_delta: {
+        Args: {
+          p_block_number?: number
+          p_micro_delta: number
+          p_user_id: string
+        }
+        Returns: number
+      }
       calculate_business_health_index: {
         Args: { p_business_id: string; p_location_id?: string }
         Returns: number
@@ -6369,6 +6497,7 @@ export type Database = {
           user_id: string
         }[]
       }
+      get_average_rating: { Args: { p_ratee_id: string }; Returns: number }
       get_hub_balance: { Args: { uid: string }; Returns: number }
       get_real_library_yield: {
         Args: never
@@ -6461,6 +6590,14 @@ export type Database = {
           error_count: number
           processed_count: number
         }[]
+      }
+      set_usdc_balance: {
+        Args: {
+          p_block_number?: number
+          p_micro_balance: number
+          p_user_id: string
+        }
+        Returns: number
       }
       settle_sovereign_transaction: {
         Args: {
