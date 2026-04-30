@@ -101,7 +101,7 @@ export const ProcessPayrollModal = ({ isOpen, onClose }: ProcessPayrollModalProp
           ...prev,
           status: 'transferring',
           progress: 60,
-          message: `Transferring $${employee.gross_pay.toFixed(2)} IDIA-USD...`
+          message: `Transferring $${employee.gross_pay.toFixed(2)} USDC...`
         }));
 
         // Simulate completion
@@ -150,7 +150,7 @@ export const ProcessPayrollModal = ({ isOpen, onClose }: ProcessPayrollModalProp
 
     toast({
       title: "Payroll Processed",
-      description: `$${totalPayrollAmount.toFixed(2)} paid to ${selectedEmployees.length} employees via ${useIdiaUsd ? 'IDIA-USD' : 'Bank Transfer'}`,
+      description: `$${totalPayrollAmount.toFixed(2)} paid to ${selectedEmployees.length} employees via ${useIdiaUsd ? 'USDC' : 'Bank Transfer'}`,
     });
 
     onClose();
@@ -217,7 +217,7 @@ export const ProcessPayrollModal = ({ isOpen, onClose }: ProcessPayrollModalProp
                   ${currentTapEmployee.gross_pay.toFixed(2)}
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  IDIA-USD to {currentTapEmployee.name}
+                  USDC to {currentTapEmployee.name}
                 </p>
               </div>
 
@@ -337,7 +337,7 @@ export const ProcessPayrollModal = ({ isOpen, onClose }: ProcessPayrollModalProp
                     <div className="flex items-center gap-3">
                       <div className="text-right">
                         <p className="font-medium">${employee.gross_pay.toFixed(2)}</p>
-                        <p className="text-xs text-muted-foreground">IDIA-USD</p>
+                        <p className="text-xs text-muted-foreground">USDC</p>
                       </div>
                       {isPaid ? (
                         <Badge variant="outline" className="bg-green-500/10 text-green-600 border-green-500/30">
@@ -426,7 +426,7 @@ export const ProcessPayrollModal = ({ isOpen, onClose }: ProcessPayrollModalProp
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Wallet className="w-5 h-5 text-primary" />
-                  <span className="font-medium">IDIA-USD Batch</span>
+                  <span className="font-medium">USDC Batch</span>
                 </div>
                 <p className="text-xs text-muted-foreground">
                   Instant transfer to all employee wallets
@@ -516,7 +516,7 @@ export const ProcessPayrollModal = ({ isOpen, onClose }: ProcessPayrollModalProp
                 </div>
                 <div className="flex justify-between text-sm text-muted-foreground mt-1">
                   <span>{selectedEmployees.length} employees</span>
-                  <span>via IDIA-USD (Instant)</span>
+                  <span>via USDC (Instant)</span>
                 </div>
               </div>
             )}

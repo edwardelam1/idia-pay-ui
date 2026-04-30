@@ -143,7 +143,7 @@ export const LiveCheckout = ({ onClose }: LiveCheckoutProps) => {
       setIsProcessing(false);
       setShowNFCReady(false);
       setSelectedOrder(null);
-      toast.success("Payment completed via IDIA-USD NFC");
+      toast.success("Payment completed via USDC NFC");
     }, 3000);
   };
 
@@ -215,7 +215,7 @@ export const LiveCheckout = ({ onClose }: LiveCheckoutProps) => {
               </div>
               <h3 className="text-xl font-bold mb-2">NFC Payment Ready</h3>
               <p className="text-muted-foreground mb-4">
-                Hold your device near the customer's phone to complete IDIA-USD payment
+                Hold your device near the customer's phone to complete USDC payment
               </p>
               <div className="flex items-center justify-center gap-2 text-sm text-primary">
                 <Radio className="h-4 w-4" />
@@ -348,7 +348,7 @@ export const LiveCheckout = ({ onClose }: LiveCheckoutProps) => {
                         </div>
                         <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
                           <Zap className="h-3 w-3 text-green-600" />
-                          <span>Both methods use IDIA-USD with 0% fees</span>
+                          <span>Both methods use USDC with 0% fees</span>
                         </div>
                       </div>
                     )}

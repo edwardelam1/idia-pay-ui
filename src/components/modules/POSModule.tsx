@@ -185,7 +185,7 @@ export const POSModule = () => {
   };
 
   const processPayment = async (paymentMethod: string) => {
-    if (paymentMethod === 'IDIA-USD (NFC)') {
+    if (paymentMethod === 'USDC (NFC)') {
       setIsNfcPaymentOpen(true);
       return;
     }
@@ -257,7 +257,7 @@ export const POSModule = () => {
       // Mock NFC payload - in real implementation, this would come from NFC reader
       const mockNfcPayload = {
         walletAddress: '0x1234567890abcdef1234567890abcdef12345678',
-        amount: calculateGrandTotal() * 0.85, // Mock IDIA-USD rate
+        amount: calculateGrandTotal() * 0.85, // Mock USDC rate
         signature: 'a'.repeat(64), // Mock signature
         timestamp: Date.now()
       };
@@ -275,7 +275,7 @@ export const POSModule = () => {
 
       if (data.success) {
         toast({
-          title: "IDIA-USD Payment Successful",
+          title: "USDC Payment Successful",
           description: `Payment verified on blockchain`,
         });
         
@@ -584,11 +584,11 @@ export const POSModule = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <Button
                   variant="outline"
-                  onClick={() => processPayment("IDIA-USD (NFC)")}
+                  onClick={() => processPayment("USDC (NFC)")}
                   className="h-12 bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20"
                 >
                   <Nfc className="w-4 h-4 mr-2" />
-                  IDIA-USD
+                  USDC
                 </Button>
                 <Button
                   variant="outline"
@@ -610,7 +610,7 @@ export const POSModule = () => {
           <DialogHeader>
             <DialogTitle className="flex items-center">
               <Nfc className="w-5 h-5 mr-2 text-primary" />
-              IDIA-USD NFC Payment
+              USDC NFC Payment
             </DialogTitle>
             <DialogDescription>
               Total: ${calculateGrandTotal().toFixed(2)} USD
@@ -625,7 +625,7 @@ export const POSModule = () => {
                 Place your IDIA wallet device near the reader
               </p>
               <div className="mt-4 text-primary font-mono">
-                ≈ {(calculateGrandTotal() * 0.85).toFixed(2)} IDIA-USD
+                ≈ {(calculateGrandTotal() * 0.85).toFixed(2)} USDC
               </div>
             </div>
             
