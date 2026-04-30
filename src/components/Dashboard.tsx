@@ -3,7 +3,7 @@ import { PayAppBlueprint } from "@/lib/provisioning-engine";
 import { DynamicModuleLoader } from "@/lib/module-registry";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { AutonomicWrapper } from "@/components/ui/AutonomicWrapper";
 import { useAutonomicEngine } from "@/hooks/useAutonomicEngine";
 import { useReconnectionSyncer } from "@/hooks/useReconnectionSyncer";
