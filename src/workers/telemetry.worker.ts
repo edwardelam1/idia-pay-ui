@@ -55,8 +55,10 @@ if (!supabaseUrl || !supabaseAnonKey) {
       console.log("[IDIA_PAY_WORKER] [RELAY] SUCCESS: Message posted to main thread.");
     },
   )
-  .subscribe((status) => {
-    console.log(`[IDIA_PAY_WORKER] [SUBSCRIPTION] STATUS: ${status}`);
-  });
+    .subscribe((status) => {
+      console.log(`[IDIA_PAY_WORKER] [SUBSCRIPTION] STATUS: ${status}`);
+    });
 
-console.log("[IDIA_PAY_WORKER] [INIT] END: Worker is now listening for compiled telemetry.");
+  console.log("[IDIA_PAY_WORKER] [INIT] END: Worker is now listening for compiled telemetry.");
+}
+
