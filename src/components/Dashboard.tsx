@@ -3,7 +3,7 @@ import { PayAppBlueprint } from "@/lib/provisioning-engine";
 import { DynamicModuleLoader } from "@/lib/module-registry";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { AutonomicWrapper } from "@/components/ui/AutonomicWrapper";
 import { useAutonomicEngine } from "@/hooks/useAutonomicEngine";
 import { useReconnectionSyncer } from "@/hooks/useReconnectionSyncer";
@@ -150,11 +150,9 @@ export const Dashboard = ({ blueprint, onWipeDevice }: SovereignDashboardProps) 
       <main className="flex-1 flex flex-col min-w-0">
         {/* Mobile header */}
         <header className="md:hidden h-11 border-b bg-card/50 backdrop-blur-sm flex items-center justify-between px-2 flex-shrink-0 gap-2">
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="h-9 w-9" onClick={() => setMobileNavOpen(true)}>
-              <Menu className="w-5 h-5" />
-            </Button>
-          </SheetTrigger>
+          <Button variant="ghost" size="icon" className="h-9 w-9" onClick={() => setMobileNavOpen(true)}>
+            <Menu className="w-5 h-5" />
+          </Button>
           <div className="flex-1 min-w-0 flex items-center gap-1.5">
             <span className="text-xs font-semibold truncate">{blueprint.clientOrganization}</span>
             <TrendingUp className="w-3 h-3 text-muted-foreground flex-shrink-0" />
